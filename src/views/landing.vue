@@ -28,7 +28,7 @@ export default {};
 
 #landing-head1 {
   color: white;
-  font-family: "Aboreto", cursive;
+  font-family: "Rock Salt", cursive;
   font-size: 6rem;
   text-shadow: 3px 3px 6px black;
   padding: 2rem;
@@ -47,5 +47,8 @@ export default {};
   width: 2rem;
   height: 1rem;
   font-size: 1.4rem;
+}
+link:hover {
+  color: black;
 }
 </style>
