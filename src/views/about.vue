@@ -93,7 +93,7 @@
   margin-top: 13rem;
 }
 .card {
-  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45));
+  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65));
   width: 30rem;
   height: 43rem;
   color: white;
@@ -103,7 +103,7 @@
   padding: 3rem;
 }
 #aboutcard2 {
-  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45));
+  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65));
   width: 30rem;
   height: 39rem;
   color: white;
@@ -171,5 +171,66 @@ img#arrowimg:hover {
 } */
 #arrowup:hover {
   color: black;
+}
+@media only screen and (max-width: 600px) {
+  body,
+  html {
+    overflow-x: hidden;
+  }
+  #about-head1[data-v-e7ab893a] {
+    font-size: 4rem;
+
+    padding: 1rem;
+    margin-top: 7rem;
+  }
+  .card[data-v-e7ab893a] {
+    width: 20rem;
+    height: 27rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    padding: 2rem;
+  }
+  #about-head2[data-v-e7ab893a] {
+    font-size: 1.4rem;
+    margin-top: 0%;
+  }
+  #aboutpg1[data-v-e7ab893a],
+  #aboutpg2[data-v-e7ab893a] {
+    display: flex;
+    justify-content: center;
+    text-shadow: 3px 3px 6px black;
+    font-size: 0.8rem;
+  }
+  #logo[data-v-e7ab893a] {
+    width: 16rem;
+    height: 10rem;
+  }
+  #aboutcard2[data-v-e7ab893a] {
+    width: 20rem;
+    height: 27rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    padding: 2rem;
+  }
+  #abouthead3[data-v-e7ab893a] {
+    font-size: 1.4rem;
+    margin-top: 0%;
+  }
+  #flavimg[data-v-e7ab893a] {
+    width: 16rem;
+    height: 10rem;
+  }
+  #abouthead4[data-v-e7ab893a] {
+    font-size: 3rem;
+    margin-top: 1rem;
+  }
+  a[data-v-e7ab893a] {
+    font-size: 1rem;
+  }
+  ::before {
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+  }
 }
 </style>

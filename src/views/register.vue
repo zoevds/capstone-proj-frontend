@@ -2,9 +2,12 @@
   <section id="register">
     <div id="regcard">
       <div class="row">
-        <div class="col-6">
+        <div class="col">
+          <h1 id="registerhead1">Register</h1>
+        </div>
+        <div class="col">
           <!-- input1 -->
-          <div class="form-floating mb-2 p-3">
+          <div class="form-floating mt-5 mb-2 p-3">
             <input
               type="fullname"
               class="form-control"
@@ -42,14 +45,6 @@
           </div>
           <button id="reg-sendbtn" type="button" class="btn">Register</button>
         </div>
-        <div class="col">
-          <h1 id="registerhead1">Register</h1>
-          <!-- <img
-            id="reg-logoimg"
-            src="https://i.postimg.cc/N0qgwFrq/vmax-logo-icon-removebg-preview.png"
-            alt=" VMAX logo"
-          /> -->
-        </div>
       </div>
       <a href="/login">Login</a>
     </div>
@@ -83,11 +78,11 @@ export default {};
   font-size: 7rem;
 
   translate: 90deg;
-  transform: rotate(90deg);
-  margin-top: 12rem;
+  transform: rotate(-90deg);
+  margin-top: 11rem;
 }
 #regcard {
-  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45));
+  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65));
   /* url(https://i.postimg.cc/N0qgwFrq/vmax-logo-icon-removebg-preview.png);
   background-position: center;
   background-size: contain;
@@ -109,21 +104,52 @@ export default {};
 #floatingInput,
 #floatingPassword,
 #floatingInput1 {
-  width: 25rem;
+  width: 27rem;
   height: 4rem;
   border: none;
-  background: linear-gradient(rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46));
+  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
   color: white;
 }
 #reg-sendbtn {
-  background: linear-gradient(rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46));
+  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
   color: white;
+  margin-right: 2.5rem;
 }
 #reg-sendbtn:hover {
   color: grey;
   border: none;
 }
-.col-6 {
+/* .col-6 {
   padding: 3rem;
+  margin-top: 2rem;
+} */
+@media only screen and (max-width: 600px) {
+  body,
+  html {
+    overflow-x: hidden;
+  }
+  #regcard {
+    width: 21rem;
+    height: 34rem;
+  }
+  #registerhead1 {
+    color: white;
+    font-family: brush;
+    padding: 1rem;
+    font-size: 3rem;
+    translate: 90deg;
+    transform: rotate(-0deg);
+    margin-top: 0rem;
+  }
+  #floatingInput,
+  #floatingPassword,
+  #floatingInput1 {
+    width: 19rem;
+    height: 3.5rem;
+  }
+  #reg-sendbtn {
+    margin-right: 0%;
+    margin-bottom: 1rem;
+  }
 }
 </style>

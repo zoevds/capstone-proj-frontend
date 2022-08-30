@@ -47,21 +47,21 @@ export default {};
 }
 #login {
   background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-    url(https://i.postimg.cc/65XcMjxf/pexels-joshua-k-ller-1366851.jpg);
+    url(https://i.postimg.cc/nrqKYdbX/pexels-rucx-co-4220349.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: 100% 100%;
+  /* background-size: 100% 100%; */
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 #logincard {
-  background: linear-gradient(rgba(0, 0, 0, 0.49), rgba(0, 0, 0, 0.49));
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
 
-  width: 62rem;
+  width: 58rem;
   height: 33rem;
   box-shadow: 3px 3px 4px black;
   margin-top: 6rem;
@@ -72,7 +72,7 @@ export default {};
   width: 28rem;
   height: 4rem;
   border: none;
-  background: linear-gradient(rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46));
+  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
   color: white;
 }
 #col-6 {
@@ -90,11 +90,37 @@ export default {};
   margin-top: 12rem;
 }
 #log-sendbtn {
-  background: linear-gradient(rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46));
+  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
   color: white;
 }
 #log-sendbtn:hover {
   color: grey;
   border: none;
+}
+@media only screen and (max-width: 600px) {
+  #landing-head1 {
+    font-size: 4rem;
+  }
+  #logincard[data-v-7589b93f] {
+    width: 20rem;
+  }
+  #loginhead1[data-v-7589b93f] {
+    padding: 1rem;
+    font-size: 3rem;
+    translate: 90deg;
+    transform: rotate(-0deg);
+    margin-top: 1rem;
+    margin-bottom: -2rem;
+  }
+  #col-6[data-v-7589b93f] {
+    padding: 3rem;
+    margin-top: -0.5rem;
+  }
+  #emailInput[data-v-7589b93f],
+  #Passwordinput[data-v-7589b93f] {
+    width: 16rem;
+    height: 4rem;
+    margin-left: -1.2rem;
+  }
 }
 </style>

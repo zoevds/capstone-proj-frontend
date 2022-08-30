@@ -1,10 +1,12 @@
 <template>
   <section id="landing">
-    <h1 id="landing-head1">VMAX VAPES</h1>
-    <router-link id="link" to="/about">
-      Learn More
-      <i id="icon" class="fa-solid fa-arrow-right-long"></i>
-    </router-link>
+    <div class="container-fluid">
+      <h1 id="landing-head1">VMAX VAPES</h1>
+      <router-link id="link" to="/about">
+        Learn More
+        <i id="icon" class="fa-solid fa-arrow-right-long"></i>
+      </router-link>
+    </div>
   </section>
 </template>
 
@@ -50,5 +52,15 @@ export default {};
 }
 link:hover {
   color: black;
+}
+@media only screen and (max-width: 600px) {
+  body,
+  html {
+    overflow-x: hidden;
+  }
+  #landing-head1 {
+    font-size: 4rem;
+    letter-spacing: 0.3rem;
+  }
 }
 </style>
