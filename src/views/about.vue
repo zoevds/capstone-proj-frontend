@@ -54,7 +54,7 @@
           </a>
         </div>
       </div>
-      <a id="arrowhref" href="/about"
+      <a id="arrowhref" href="#about"
         ><i id="arrowup" class="fa-solid fa-arrow-up-long"></i
       ></a>
     </div>
@@ -148,6 +148,7 @@ a {
   color: white;
   text-shadow: 3px 3px 6px black;
   font-size: 1.5rem;
+  text-decoration: none;
 }
 img#arrowimg:hover {
   color: black;

@@ -14,6 +14,9 @@
 export default {};
 </script>
 <style scoped>
+body {
+  scroll-behavior: smooth;
+}
 #landing {
   background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
     url(https://i.postimg.cc/NjRKvWdL/pexels-tommy-jepsen-216385.jpg);
@@ -44,6 +47,7 @@ export default {};
   font-size: 1.1rem;
   margin-bottom: 12px;
   text-shadow: 3px 3px 6px black;
+  text-decoration: none;
 }
 #icon {
   width: 2rem;

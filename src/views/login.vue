@@ -1,44 +1,78 @@
 <template>
   <section id="login">
     <div id="logincard">
-      <div class="row">
-        <div class="col">
-          <h1 id="loginhead1">Login</h1>
-        </div>
-        <div id="col-6" class="col">
-          <div class="form-floating mb-2 p-3">
-            <input
-              type="email"
-              class="form-control"
-              id="emailInput"
-              placeholder="name@example.com"
-            />
-            <label class="text-light mt-3 text-center" for="emailInput"
-              >Email address</label
-            >
+      <form>
+        <div class="row">
+          <div class="col">
+            <h1 id="loginhead1">Login</h1>
           </div>
-          <!-- input3 -->
+          <div id="col-6" class="col">
+            <div class="form-floating mb-2 p-3">
+              <input
+                type="email"
+                class="form-control"
+                id="emailInput"
+                placeholder="name@example.com"
+              />
+              <label class="text-light mt-3 text-center" for="emailInput"
+                >Email address</label
+              >
+            </div>
+            <!-- input3 -->
 
-          <div class="form-floating mb-4 p-3">
-            <input
-              type="password"
-              class="form-control"
-              id="Passwordinput"
-              placeholder="Password"
-            />
-            <label class="text-light mt-4 text-center" for="Passwordinput"
-              >Password</label
+            <div class="form-floating mb-4 p-3">
+              <input
+                type="password"
+                class="form-control"
+                id="Passwordinput"
+                placeholder="Password"
+              />
+              <label class="text-light mt-4 text-center" for="Passwordinput"
+                >Password</label
+              >
+            </div>
+            <button
+              id="log-sendbtn"
+              type="onclick"
+              class="btn"
+              onclick="onsubmit()"
             >
+              Login
+            </button>
+            <div v-if="user">Welcome {{ user.user_fullname }}</div>
           </div>
-          <button id="log-sendbtn" type="button" class="btn">Login</button>
+          <footer class="fooooter">
+            Don't have an account?
+            <router-link to="/register">Register</router-link>
+          </footer>
+          <!-- <a href="/register">Register</a> -->
         </div>
-        <a href="/register">Register</a>
-      </div>
+      </form>
     </div>
   </section>
 </template>
 <script>
-export default {};
+export default {
+  computed: {
+    user() {
+      return this.$store.state.user;
+    },
+  },
+  data() {
+    return {
+      user_email: "",
+      user_password: "",
+    };
+  },
+  methods: {
+    login() {
+      this.$store.dispatch("login", {
+        user_email: this.user_email,
+        user_password: this.user_password,
+      });
+    },
+  },
+};
 </script>
 <style scoped>
 @font-face {
@@ -96,6 +130,9 @@ export default {};
 #log-sendbtn:hover {
   color: grey;
   border: none;
+}
+.fooooter {
+  color: white;
 }
 @media only screen and (max-width: 600px) {
   #landing-head1 {
