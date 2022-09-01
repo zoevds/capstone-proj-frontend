@@ -17,9 +17,16 @@ const routes = [
     component: () => import("../views/products.vue"),
   },
   {
-    path: "/products/:product_id",
+    path: "/products/:id",
     name: "singleproduct",
     component: () => import("../views/singleproduct.vue"),
+    props: true,
+  },
+  {
+    path: "/flavours/:id",
+    name: "singleflavour",
+    component: () => import("../views/singleflavour.vue"),
+    props: true,
   },
   {
     path: "/contact",
@@ -35,6 +42,11 @@ const routes = [
     path: "/register",
     name: "register",
     component: () => import("../views/register.vue"),
+  },
+  {
+    path: "/alladmintables",
+    name: "alladmintables",
+    component: () => import("../views/allAdminTables.vue"),
   },
 ];
 

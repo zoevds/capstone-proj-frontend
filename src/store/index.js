@@ -5,6 +5,8 @@ export default createStore({
     user: null,
     product: null,
     products: null,
+    flavour: null,
+    flavours: null,
     asc: true,
   },
   getters: {},
@@ -17,6 +19,12 @@ export default createStore({
     },
     setProducts: (state, products) => {
       state.products = products;
+    },
+    setFlavours: (state, flavours) => {
+      state.flavours = flavours;
+    },
+    setFlavour: (state, flavour) => {
+      state.flavour = flavour;
     },
   },
   actions: {
@@ -56,7 +64,7 @@ export default createStore({
     getProduct: async (context, id) => {
       fetch("https://zoe-capstone-api.herokuapp.com/products/" + id)
         .then((response) => response.json())
-        .then((json) => context.commit("setProduct", json));
+        .then((data) => context.commit("setProduct", data));
     },
     // ADD A PRODUCT
     addProduct: async (context, product) => {
@@ -77,6 +85,20 @@ export default createStore({
       })
         .then((response) => response.json())
         .then(() => context.dispatch("getProducts"));
+    },
+    // FLAVOURS
+    // SHOW ALL FLAVOURS
+    getFlavours: async (context) => {
+      fetch("https://zoe-capstone-api.herokuapp.com/flavours")
+        .then((res) => res.json())
+        .then((data) => context.commit("setFlavours", data))
+        .catch((err) => console.log(err.message));
+    },
+    // SHOW ONE FLAVOUR
+    getFlavour: async (context, id) => {
+      fetch("https://zoe-capstone-api.herokuapp.com/flavours/" + id)
+        .then((response) => response.json())
+        .then((json) => context.commit("setFlavour", json));
     },
     // UPDATE A PRODUCT
     updateProduct: async (context, product) => {

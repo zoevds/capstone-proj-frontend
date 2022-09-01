@@ -8,10 +8,14 @@
         id="vfor-div"
         v-for="product of products"
         :key="product.product_id"
-        :post="post"
+        :product="product"
       >
         <div id="prodcard" class="card">
           <div class="col">
+            <!-- <router-link
+              id="product-link"
+              :to="{ name: 'singleproduct', params: { id: products.id } }"
+            > -->
             <h1 id="prodhead1">{{ product.product_name }}</h1>
             <!-- </div> -->
             <!-- <div class="col"> -->
@@ -31,19 +35,16 @@
               </div>
             </div>
           </div>
-          <a href="">view product</a>
-          <!-- <router-link
+          <router-link
+            id="viewprodlink"
             :to="{
-              name: 'singleCard',
+              name: 'singleproduct',
               params: {
-                id: product_id,
+                id: product.product_id,
               },
             }"
+            >View Product</router-link
           >
-            <div class="btn">
-              <span>View Product</span>
-            </div></router-link
-          > -->
         </div>
       </div>
     </div>
@@ -51,17 +52,74 @@
   <section id="flavours">
     <h1 id="flavhead1">Different Flavours</h1>
     <p id="flavpg">Explore our different vape flavours</p>
+    <div class="container">
+      <div v-if="products"></div>
+      <div class="row p-5">
+        <div
+          id="vfor-div"
+          v-for="flavour of flavours"
+          :key="flavour.flavour_id"
+          :flavour="flavour"
+          class="col-md-4 p-5"
+        >
+          <div class="row">
+            <!-- <div class="col-md-4"> -->
+            <div id="flavcard" class="card">
+              <!-- <div class="col"> -->
+              <h1 id="flavcardhead2">{{ flavour.flavour_name }}</h1>
+              <!-- </div> -->
+              <!-- <div class="col"> -->
+              <img
+                id="flavimg"
+                class="img-fluid"
+                :src="flavour.flavour_imgURL"
+                alt=""
+              />
+
+              <!-- </div> -->
+              <!-- <div class="col"> -->
+              <div class="flavour-info">
+                <!-- {{ flavour.flavour_desc }} -->
+                <div id="pricerow" class="row">
+                  <!-- <div class="col"> -->
+                  R {{ flavour.flavour_price }}
+                  <router-link
+                    id="viewflavlink"
+                    :to="{
+                      name: 'singleflavour',
+                      params: {
+                        id: flavour.flavour_id,
+                      },
+                    }"
+                    >View Product</router-link
+                  >
+                </div>
+              </div>
+           
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- </div>
+      </div>
+    </div> -->
+    <!-- </div> -->
   </section>
 </template>
 <script>
 export default {
   mounted() {
     this.$store.dispatch("getProducts");
+    this.$store.dispatch("getFlavours");
   },
   computed: {
     products() {
       // console.log(this.$store.state.products);
       return this.$store.state.products;
+    },
+    flavours() {
+      return this.$store.state.flavours;
     },
   },
 };
@@ -75,6 +133,7 @@ body,
 html {
   overflow-x: hidden;
   /* overflow-y: hidden; */
+  min-height: 100vh;
 }
 #container {
   display: flex;
@@ -100,6 +159,12 @@ html {
   font-family: brush;
   color: white;
   margin-top: -4rem;
+  text-shadow: 4px 4px 8px black;
+}
+#flavcardhead2 {
+  font-size: 2rem;
+  font-family: "Rock Salt", cursive;
+  text-shadow: 4px 4px 8px black;
 }
 #flavhead1 {
   color: white;
@@ -108,9 +173,13 @@ html {
   text-shadow: 4px 4px 8px black;
   padding: 2rem;
 }
+#pricerow {
+  display: flex;
+  justify-content: center;
+}
 #products {
   background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-    url(https://i.postimg.cc/PJSKP48B/pexels-tim-mossholder-2180803.jpg);
+    url(https://i.postimg.cc/jSM3b4LL/pexel.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -119,13 +188,19 @@ html {
   min-height: 100vh;
   margin-top: -5rem;
 }
+img#flavimg {
+  /* width: 400px; */
+  object-fit: contain;
+  aspect-ratio: 1;
+}
 #flavours {
-  min-height: 80vh;
+  min-height: 50vh;
   background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-    url(https://i.postimg.cc/HnTdppQ6/pexels-stanislav-kondratiev-3269267.jpg);
+    url(https://i.postimg.cc/htNZNKCf/background-flav.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 #producthead1 {
   color: white;
@@ -147,12 +222,33 @@ div#prodcard {
   padding: 2rem;
   box-shadow: 4px 4px 8px black;
 }
-.col {
-  margin-bottom: 10px;
+#flavcard {
+  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
+  width: 300px;
+  height: 430px;
+  /* margin-bottom: 2rem; */
+  color: white;
+  padding: 1rem;
+  box-shadow: 4px 4px 8px black;
 }
+/* .col {
+  margin-bottom: 10px;
+} */
 #prodimg {
   width: 23rem;
   height: 15rem;
   border-radius: 6px;
+  object-fit: cover;
+  aspect-ratio: 1;
+}
+#viewprodlink {
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 600px) {
+  body,
+  html {
+    overflow-x: hidden;
+  }
 }
 </style>
