@@ -29,12 +29,29 @@
                   <p class="card-text">
                     Version: {{ product.product_category }}
                   </p>
-                  <ul class="wrapper">
-                    <li class="icon cart">
-                      <span class="tooltip">Add to cart</span>
-                      <span><i class="fa-solid fa-cart-shopping"></i></span>
-                    </li>
-                  </ul>
+                  <div class="row">
+                    <div class="col">
+                      <ul class="productwrapper">
+                        <li class="producticon productcart">
+                          <span class="producttooltip">Add to cart</span>
+                          <span><i class="fa-solid fa-cart-shopping"></i></span>
+                        </li>
+                      </ul>
+
+                      <ul class="productwrapper">
+                        <li class="producticon productcart">
+                          <span class="producttooltip">Go Back</span>
+                          <span
+                            ><router-link to="/products"
+                              ><i
+                                id="routeid"
+                                class="fa-solid fa-arrow-left-long"
+                              ></i></router-link
+                          ></span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -95,34 +112,39 @@ export default {
 #singleprodtbn {
   border-radius: 8px;
 }
-.card-body {
+/* .card-body {
   margin-top: 8rem;
+} */
+#routeid {
+  color: white;
+  font-size: 2rem;
 }
-.wrapper {
+.productwrapper {
   display: inline-flex;
   list-style: none;
   margin-top: 3rem;
+  /* font-size: 2rem; */
 }
 
-.wrapper .icon {
+.productwrapper .producticon {
   position: relative;
   background: black;
-  border-radius: 50%;
-  padding: 15px;
-  margin: 10px;
-  width: 50px;
+  border-radius: 8px;
+  /* padding: 15px; */
+  /* margin: 10px; */
+  width: 10rem;
   height: 50px;
-  font-size: 18px;
+  font-size: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 4px 4px 8px black;
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-.wrapper .tooltip {
+.productwrapper .producttooltip {
   position: absolute;
   top: 0;
   font-size: 14px;
@@ -138,7 +160,7 @@ export default {
   margin-bottom: 2rem;
 }
 
-.wrapper .tooltip::before {
+.productwrapper .producttooltip::before {
   position: absolute;
   content: "";
   height: 8px;
@@ -150,21 +172,21 @@ export default {
   transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-.wrapper .icon:hover .tooltip {
+.productwrapper .producticon:hover .producttooltip {
   top: -45px;
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
 }
 
-.wrapper .icon:hover span,
-.wrapper .icon:hover .tooltip {
+.productwrapper .producticon:hover span,
+.productwrapper .producticon:hover .producttooltip {
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
 }
 
-.wrapper .cart:hover,
-.wrapper .cart:hover .tooltip,
-.wrapper .cart:hover .tooltip::before {
+.productwrapper .productcart:hover,
+.productwrapper .productcart:hover .producttooltip,
+.productwrapper .productcart:hover .producttooltip::before {
   background: grey;
   color: black;
 }
