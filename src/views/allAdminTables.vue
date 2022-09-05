@@ -84,6 +84,103 @@
       </div>
       <div class="col">
         <h1 id="producttable1">Product Table</h1>
+        <!-- add product modal -->
+        <!-- Button trigger modal -->
+        <button
+          type="button"
+          class="btn btn-primary mb-3"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          Add Product
+        </button>
+
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header bg-dark text-light">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <!-- input 1 -->
+                <input
+                  type="text"
+                  name="text"
+                  class="input"
+                  placeholder="Product Name"
+                />
+                <!-- input 1 -->
+                <!-- input 2 -->
+                <input
+                  type="text"
+                  name="text"
+                  class="input"
+                  placeholder="Product Image URL"
+                />
+                <!-- input 2 -->
+                <!-- input 3 -->
+                <input
+                  type="text"
+                  name="text"
+                  class="input"
+                  placeholder="Product Description"
+                />
+                <!-- input 3 -->
+                <!-- input 4 -->
+                <input
+                  type="text"
+                  name="text"
+                  class="input"
+                  placeholder="Product Price"
+                />
+                <!-- input 4 -->
+                <!-- input 5 -->
+                <input
+                  type="text"
+                  name="text"
+                  class="input"
+                  placeholder="Product weight"
+                />
+                <!-- input 5 -->
+                <!-- input 6 -->
+                <input
+                  type="text"
+                  name="text"
+                  class="input"
+                  placeholder="Product Category"
+                />
+                <!-- input 6 -->
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="button" class="btn btn-primary">
+                  Save changes
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- add product modal -->
         <!--  PRODUCT TABLE -->
         <table id="producttable" class="table">
           <thead>
@@ -471,5 +568,34 @@ export default {};
   color: white;
   margin-top: 2rem;
   text-shadow: 5px 5px 10px black;
+}
+/* table inputs */
+.input {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  font-weight: 500;
+  font-size: 0.8vw;
+  color: #fff;
+  background-color: rgb(28, 28, 30);
+  box-shadow: 0 0 0.4vw rgba(0, 0, 0, 0.5), 0 0 0 0.15vw transparent;
+  border-radius: 0.4vw;
+  border: none;
+  outline: none;
+  padding: 0.4vw;
+  width: 25rem;
+  transition: 0.4s;
+  margin-bottom: 1rem;
+}
+
+.input:hover {
+  box-shadow: 0 0 0 0.15vw rgba(135, 207, 235, 0.186);
+}
+
+.input:focus {
+  box-shadow: 0 0 0 0.15vw skyblue;
+}
+#exampleModal {
+  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
 }
 </style>

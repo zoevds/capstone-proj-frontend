@@ -3,7 +3,7 @@
     <div v-if="product">
       <div
         v-for="product in product"
-        :key="product.product_id"
+        :key="product.product_id" class="item"
         :product="product"
       >
         <div class="d-flex justify-content-center">
@@ -69,7 +69,6 @@ export default {
       return this.$store.state.product;
     },
   },
-
   mounted() {
     console.log(this.$route.params.id);
     this.$store.dispatch("getProduct", this.$route.params.id);

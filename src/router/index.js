@@ -48,6 +48,16 @@ const routes = [
     name: "alladmintables",
     component: () => import("../views/allAdminTables.vue"),
   },
+  {
+    path: "/cart",
+    name: "cart",
+    component: () => import("../views/cart.vue"),
+  },
+  {
+    path: "/userprofile",
+    name: "userprofile",
+    component: () => import("../views/userprofile.vue"),
+  },
 ];
 
 const router = createRouter({

@@ -1,6 +1,10 @@
 <template>
   <section id="contact">
-    <div id="contactcard">
+    <form
+      action="https://formspree.io/f/xaykqebz"
+      method="POST"
+      id="contactcard"
+    >
       <h1 id="contacthead1">Contact</h1>
       <!-- input1 -->
       <div class="form-floating mb-2 p-3">
@@ -39,8 +43,10 @@
           >Message</label
         >
       </div>
-      <button id="cont-sendbtn" type="button" class="btn">Send</button>
-    </div>
+      <button id="cont-sendbtn" type="onsubmit" class="btn" @click="submit()">
+        Send
+      </button>
+    </form>
   </section>
 </template>
 <script>
@@ -69,7 +75,7 @@ export default {};
   width: 42rem;
   height: 35rem;
   box-shadow: 3px 3px 4px black;
-  margin-top: 4rem;
+  margin-top: 6rem;
   border-radius: 8px;
   padding: 2rem;
 }

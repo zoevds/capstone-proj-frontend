@@ -7,5 +7,7 @@ export default {};
 <style>
 #footer {
   background-color: #152d35;
+  /* width: 10rem; */
+  height: 4rem;
 }
 </style>

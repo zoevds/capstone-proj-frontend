@@ -1,3 +1,4 @@
+import router from "../router/index";
 import { createStore } from "vuex";
 
 export default createStore({
@@ -6,6 +7,7 @@ export default createStore({
     product: null,
     products: null,
     flavour: null,
+    Token: null,
     flavours: null,
     asc: true,
   },
@@ -26,30 +28,65 @@ export default createStore({
     setFlavour: (state, flavour) => {
       state.flavour = flavour;
     },
+    setToken: (state, token) => {
+      state.token = token;
+    },
   },
   actions: {
-    // USER
-    // LOGIN USER
+//  LOGIN
     login: async (context, payload) => {
-      const { user_email, user_password } = payload;
-      const response = await fetch(
-        `https://zoe-capstone-api.herokuapp.com/users?email=${user_email}&password=${user_password}`
+      let res = await fetch(
+        "https://zoe-capstone-api.herokuapp.com/users/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            user_email: payload.user_email,
+            user_password: payload.user_password,
+          }),
+        }
       );
-      const userData = await response.json();
-      if (userData.length) return context.commit("setUser", userData[0]);
-      if (!userData.length) return alert("No user found");
+      let data = await res.json();
+
+      if (data.token) {
+        context.commit("setToken", data.token);
+
+        // Verify token
+        //
+        fetch("https://zoe-capstone-api.herokuapp.com/users/users/verify", {
+          headers: {
+            "Content-Type": "application/json",
+            "x-auth-token": data.token,
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            context.commit("setUser", data.user);
+          });
+
+        router.push("/products");
+      }
     },
-    // REGISTER USER
-    register: async (context, user) => {
-      fetch("`https://zoe-capstone-api.herokuapp.com/users", {
+    // REGISTER/ SIGN UP
+    signUp: async (context, payload) => {
+      fetch("https://zoe-capstone-api.herokuapp.com/users/register", {
         method: "POST",
-        body: JSON.stringify(user),
+        body: JSON.stringify({
+          user_fullname: payload.user_full_name,
+          user_email: payload.user_email,
+          user_password: payload.user_password,
+
+          join_date: "2023-06-03",
+          user_type: "user",
+        }),
         headers: {
-          "Content-type": "application/json; charset=UTF-8",
+          "Content-type": "application/json",
         },
       })
         .then((response) => response.json())
-        .then((json) => context.commit("setUser", json));
+        .then((data) => console.log(data));
     },
     // PRODUCTS
     // SHOW ALL PRODUCTS

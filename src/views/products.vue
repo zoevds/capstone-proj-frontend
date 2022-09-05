@@ -2,8 +2,61 @@
   <section id="products">
     <h1 id="producthead1">all products</h1>
     <p id="prodpg">Have a look at our different VMAX Vapes and models.</p>
+
+    <!-- search bar -->
+    <form class="form">
+      <button>
+        <svg
+          width="17"
+          height="16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-labelledby="search"
+        >
+          <path
+            d="M7.667 12.667A5.333 5.333 0 107.667 2a5.333 5.333 0 000 10.667zM14.334 14l-2.9-2.9"
+            stroke="currentColor"
+            stroke-width="1.333"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+        </svg>
+      </button>
+      <input
+        class="input"
+        placeholder="Type your text"
+        required=""
+        type="text"
+      />
+      <button class="reset" type="reset">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+          ></path>
+        </svg>
+      </button>
+    </form>
+    <!-- search bar -->
+    <div v-if="filteredProducts" class="row">
+      <div
+        v-for="product in filteredProducts"
+        :key="product.product_id"
+        :post="post"
+        class="col-lg-4"
+      ></div>
+    </div>
     <!-- <div class="col"> -->
-    <div id="container">
+    <div v-if="products" id="container">
       <div
         id="vfor-div"
         v-for="product of products"
@@ -12,10 +65,7 @@
       >
         <div id="prodcard" class="card">
           <div class="col">
-            <!-- <router-link
-              id="product-link"
-              :to="{ name: 'singleproduct', params: { id: products.id } }"
-            > -->
+           
             <h1 id="prodhead1">{{ product.product_name }}</h1>
             <!-- </div> -->
             <!-- <div class="col"> -->
@@ -54,6 +104,14 @@
           </ul>
         </div>
       </div>
+    </div>
+    <div v-else class="wrapper mx-auto">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="shadow"></div>
+      <div class="shadow"></div>
+      <div class="shadow"></div>
     </div>
   </section>
   <section id="flavours">
@@ -133,6 +191,16 @@ export default {
     flavours() {
       return this.$store.state.flavours;
     },
+  },
+  filteredProducts() {
+    return this.$store.state.products?.filter((product) => {
+      let isMatch = true;
+      if (
+        !product.product_name?.toLowerCase().includes(this.search.toLowerCase())
+      )
+        isMatch = false;
+      return isMatch;
+    });
   },
 };
 </script>
@@ -405,6 +473,185 @@ div#prodcard {
 .prodwrapper .viewprod:hover .prodtooltip::before {
   background: grey;
   color: black;
+}
+/* loading bar */
+
+.wrapper {
+  width: 200px;
+  height: 60px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  border-radius: 50%;
+  background-color: #fff;
+  left: 15%;
+  transform-origin: 50%;
+  animation: circle7124 0.5s alternate infinite ease;
+  /* display: flex;
+  justify-content: center; */
+}
+
+@keyframes circle7124 {
+  0% {
+    top: 60px;
+    height: 5px;
+    border-radius: 50px 50px 25px 25px;
+    transform: scaleX(1.7);
+  }
+
+  40% {
+    height: 20px;
+    border-radius: 50%;
+    transform: scaleX(1);
+  }
+
+  100% {
+    top: 0%;
+  }
+}
+
+.circle:nth-child(2) {
+  left: 45%;
+  animation-delay: 0.2s;
+}
+
+.circle:nth-child(3) {
+  left: auto;
+  right: 15%;
+  animation-delay: 0.3s;
+}
+
+.shadow {
+  width: 20px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: absolute;
+  top: 62px;
+  transform-origin: 50%;
+  z-index: -1;
+  left: 15%;
+  filter: blur(1px);
+  animation: shadow046 0.5s alternate infinite ease;
+}
+
+@keyframes shadow046 {
+  0% {
+    transform: scaleX(1.5);
+  }
+
+  40% {
+    transform: scaleX(1);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scaleX(0.2);
+    opacity: 0.4;
+  }
+}
+
+.shadow:nth-child(4) {
+  left: 45%;
+  animation-delay: 0.2s;
+}
+
+.shadow:nth-child(5) {
+  left: auto;
+  right: 15%;
+  animation-delay: 0.3s;
+}
+
+/* search bar */
+
+.form button {
+  border: none;
+  background: none;
+  color: #8b8ba7;
+}
+/* styling of whole input container */
+.form {
+  --timing: 0.3s;
+  --width-of-input: 30rem;
+  --height-of-input: 3rem;
+  --border-height: 2px;
+  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65));
+  --border-color: black;
+  --border-radius: 30px;
+  --after-border-radius: 1px;
+  position: relative;
+  width: var(--width-of-input);
+  height: var(--height-of-input);
+  display: flex;
+  align-items: center;
+  padding-inline: 0.8em;
+  border-radius: var(--border-radius);
+  transition: border-radius 0.5s ease;
+
+  margin-bottom: 2rem;
+  margin-left: 30rem;
+}
+/* styling of Input */
+.input {
+  font-size: 0.9rem;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  padding-inline: 0.5em;
+  padding-block: 0.7em;
+  border: none;
+  color: white;
+}
+/* styling of animated border */
+.form:before {
+  content: "";
+  position: absolute;
+  background: var(--border-color);
+  transform: scaleX(0);
+  transform-origin: center;
+  width: 100%;
+  height: var(--border-height);
+  left: 0;
+  bottom: 0;
+  border-radius: 1px;
+  transition: transform var(--timing) ease;
+}
+/* Hover on Input */
+.form:focus-within {
+  border-radius: var(--after-border-radius);
+}
+
+input:focus {
+  outline: none;
+}
+/* here is code of animated border */
+.form:focus-within:before {
+  transform: scale(1);
+}
+/* styling of close button */
+/* == you can click the close button to remove text == */
+.reset {
+  border: none;
+  background: none;
+  opacity: 0;
+  visibility: hidden;
+}
+/* close button shown when typing */
+input:not(:placeholder-shown) ~ .reset {
+  opacity: 1;
+  visibility: visible;
+}
+/* sizing svg icons */
+.form svg {
+  width: 17px;
+  margin-top: 3px;
 }
 @media only screen and (max-width: 600px) {
   body,

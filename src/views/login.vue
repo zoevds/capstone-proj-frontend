@@ -12,6 +12,7 @@
                 type="email"
                 class="form-control"
                 id="emailInput"
+                v-model="user_email"
                 placeholder="name@example.com"
               />
               <label class="text-light mt-3 text-center" for="emailInput"
@@ -25,6 +26,7 @@
                 type="password"
                 class="form-control"
                 id="Passwordinput"
+                v-model="user_password"
                 placeholder="Password"
               />
               <label class="text-light mt-4 text-center" for="Passwordinput"
@@ -35,11 +37,13 @@
               id="log-sendbtn"
               type="onclick"
               class="btn"
-              onclick="onsubmit()"
+              @click.prevent="login()"
             >
               Login
             </button>
-            <div v-if="user">Welcome {{ user.user_fullname }}</div>
+            <div id="usermessage" v-if="user">
+              Welcome {{ user.user_fullname }}
+            </div>
           </div>
           <footer class="fooooter">
             Don't have an account?
@@ -109,6 +113,10 @@ export default {
   background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
   color: white;
 }
+#usermessage {
+  color: white;
+}
+
 #col-6 {
   padding: 4rem;
   margin-top: 3rem;

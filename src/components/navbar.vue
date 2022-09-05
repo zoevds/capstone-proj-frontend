@@ -36,6 +36,15 @@
           <li class="nav-item">
             <router-link to="/register">Register</router-link>|
           </li>
+          <li class="nav-item"><router-link to="/cart"> Cart</router-link>|</li>
+          <li class="nav-item">
+            <router-link to="/userprofile"
+              ><i
+                id="profile-icon"
+                class="fa-solid fa-id-badge"
+              ></i></router-link
+            >|
+          </li>
         </ul>
       </div>
     </div>
@@ -52,7 +61,7 @@
 }
 
 .navbar {
-  background-color: #152d35;
+  background-color: black;
   border-radius: 12px;
   /* margin-top: 1.5rem; */
   z-index: 100;
@@ -79,7 +88,10 @@ nav a.router-link-exact-active {
   align-items: center;
   margin-bottom: -0.5rem;
 }
-
+#profile-icon {
+  font-size: 1.5rem;
+  margin-left: 1.5rem;
+}
 @media only screen and (max-width: 600px) {
   .navbar {
     width: 100%;
