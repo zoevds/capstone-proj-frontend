@@ -16,6 +16,9 @@ export default createStore({
     setUser: (state, user) => {
       state.user = user;
     },
+    setUsers: (state, users) => {
+      state.users = users;
+    },
     setProduct: (state, product) => {
       state.product = product;
     },
@@ -33,7 +36,7 @@ export default createStore({
     },
   },
   actions: {
-//  LOGIN
+    //  LOGIN
     login: async (context, payload) => {
       let res = await fetch(
         "https://zoe-capstone-api.herokuapp.com/users/login",
@@ -87,6 +90,14 @@ export default createStore({
       })
         .then((response) => response.json())
         .then((data) => console.log(data));
+    },
+    // USERS
+    // SHOW ALL USERS
+    getUsers: async (context) => {
+      fetch("https://zoe-capstone-api.herokuapp.com/users")
+        .then((res) => res.json())
+        .then((data) => context.commit("setUsers", data))
+        .catch((err) => console.log(err.message));
     },
     // PRODUCTS
     // SHOW ALL PRODUCTS

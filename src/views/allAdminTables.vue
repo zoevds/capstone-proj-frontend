@@ -3,6 +3,94 @@
     <div class="row">
       <div class="col">
         <h1 id="usertable1">User Table</h1>
+        <!-- add user modal -->
+        <!-- Button trigger modal -->
+        <button
+          type="button"
+          class="btn btn-primary mb-3"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal1"
+        >
+          Add User
+        </button>
+
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="exampleModal1"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel1"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header bg-dark text-light">
+                <h5 class="modal-title" id="exampleModalLabel1">Add User</h5>
+                <button
+                  type="button"
+                  class="btn-close bg-light"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body bg-dark">
+                <!-- input 1 -->
+                <input
+                  type="text"
+                  name="text"
+                  class="input"
+                  placeholder="User Full Name"
+                />
+                <!-- input 1 -->
+                <!-- input 2 -->
+                <input
+                  type="text"
+                  name="text"
+                  class="input"
+                  placeholder=" User Email"
+                />
+                <!-- input 2 -->
+                <!-- input 3 -->
+                <input
+                  type="text"
+                  name="text"
+                  class="input"
+                  placeholder="User Billing address"
+                />
+                <!-- input 3 -->
+                <!-- input 4 -->
+                <input
+                  type="text"
+                  name="text"
+                  class="input"
+                  placeholder="User Shipping Address"
+                />
+                <!-- input 4 -->
+                <!-- input 5 -->
+                <input
+                  type="text"
+                  name="text"
+                  class="input"
+                  placeholder="User Order Date"
+                />
+                <!-- input 5 -->
+                <!-- input 6 -->
+                <input
+                  type="text"
+                  name="text"
+                  class="input"
+                  placeholder="User Type"
+                />
+                <!-- input 6 -->
+              </div>
+              <div class="modal-footer bg-dark">
+                <button type="button" class="btn btn-primary">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- add user modal -->
         <!-- USER TABLE -->
         <table id="usertable" class="table">
           <thead>
@@ -90,7 +178,7 @@
           type="button"
           class="btn btn-primary mb-3"
           data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
+          data-bs-target="#exampleModal2"
         >
           Add Product
         </button>
@@ -98,23 +186,23 @@
         <!-- Modal -->
         <div
           class="modal fade"
-          id="exampleModal"
+          id="exampleModal2"
           tabindex="-1"
-          aria-labelledby="exampleModalLabel"
+          aria-labelledby="exampleModalLabel2"
           aria-hidden="true"
         >
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header bg-dark text-light">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel2">Add Product</h5>
                 <button
                   type="button"
-                  class="btn-close"
+                  class="btn-close bg-light"
                   data-bs-dismiss="modal"
                   aria-label="Close"
                 ></button>
               </div>
-              <div class="modal-body">
+              <div class="modal-body bg-dark">
                 <!-- input 1 -->
                 <input
                   type="text"
@@ -164,17 +252,8 @@
                 />
                 <!-- input 6 -->
               </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-                <button type="button" class="btn btn-primary">
-                  Save changes
-                </button>
+              <div class="modal-footer bg-dark">
+                <button type="button" class="btn btn-primary">Save</button>
               </div>
             </div>
           </div>
@@ -334,6 +413,78 @@
       </div>
       <div class="col">
         <h1 id="flavourtable1">Flavour Table</h1>
+        <!-- add flavour modal -->
+        <!-- Button trigger modal -->
+        <button
+          type="button"
+          class="btn btn-primary mb-3"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal3"
+        >
+          Add Flavour
+        </button>
+
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="exampleModal3"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel3"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header bg-dark text-light">
+                <h5 class="modal-title" id="exampleModalLabel3">Add Flavour</h5>
+                <button
+                  type="button"
+                  class="btn-close bg-light"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body bg-dark">
+                <!-- input 1 -->
+                <input
+                  type="text"
+                  name="text"
+                  class="input"
+                  placeholder="Flavour Name"
+                />
+                <!-- input 1 -->
+                <!-- input 2 -->
+                <input
+                  type="text"
+                  name="text"
+                  class="input"
+                  placeholder="Flavour Description"
+                />
+                <!-- input 2 -->
+                <!-- input 3 -->
+                <input
+                  type="text"
+                  name="text"
+                  class="input"
+                  placeholder="Flavour image URL"
+                />
+                <!-- input 3 -->
+                <!-- input 4 -->
+                <input
+                  type="text"
+                  name="text"
+                  class="input"
+                  placeholder="Flavour Price"
+                />
+                <!-- input 4 -->
+              </div>
+              <div class="modal-footer bg-dark">
+                <button type="button" class="btn btn-primary">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- add flavour modal -->
         <!--  PRODUCT TABLE -->
         <table id="flavourtable" class="table">
           <thead>

@@ -1,11 +1,17 @@
 <template>
   <section id="userprofile">
     <div id="profile-cont" class="container">
-      <div v-for="user in users" :key="user.user_id" :user="user"></div>
-      <div id="profilecard" class="card">
-        <h1 id="userprofile-head1">Your Profile</h1>
-        <h3>{{ user.user_fullname }}</h3>
-        <p>{{ user.user_cart }}</p>
+      <div v-for="user in users" :key="user.user_id" :user="user">
+        <div id="profilecard" class="card">
+          <h1 id="userprofile-head1">Your Profile</h1>
+          <div class="row">
+            <div class="col">name</div>
+            <div class="col">
+              <!-- <h3>{{ user.user_fullname }}</h3>
+              <p>{{ user.user_cart }}</p> -->
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
