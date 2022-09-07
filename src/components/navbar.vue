@@ -48,7 +48,9 @@
             >|
           </li>
           <li class="nav-item">
-            <button><i class="fa-solid fa-right-from-bracket"></i></button>
+            <button @click="logout()">
+              <i class="fa-solid fa-right-from-bracket"></i>
+            </button>
           </li>
         </ul>
       </div>
@@ -60,6 +62,11 @@ export default {
   computed: {
     user() {
       return this.$store.state.user;
+    },
+  },
+  methods: {
+    logout() {
+      this.$store.commit("logout");
     },
   },
 };

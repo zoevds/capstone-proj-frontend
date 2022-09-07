@@ -38,7 +38,7 @@ export default createStore({
     },
     logout: (state) => {
       (state.user = ""),
-        (state.token = ""),
+        (state.Token = ""),
         (state.users = ""),
         (state.product = ""),
         (state.products = "");
