@@ -275,7 +275,7 @@ img#flavimg {
 #flavours {
   min-height: 50vh;
   background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-    url(https://i.postimg.cc/nzhzdshb/awe.jpg);
+    url();
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
