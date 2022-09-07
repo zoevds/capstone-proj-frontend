@@ -36,6 +36,13 @@ export default createStore({
     setToken: (state, token) => {
       state.token = token;
     },
+    logout: (state) => {
+      (state.user = ""),
+        (state.token = ""),
+        (state.users = ""),
+        (state.product = ""),
+        (state.products = "");
+    },
   },
   actions: {
     //  LOGIN
@@ -75,24 +82,24 @@ export default createStore({
       }
     },
     // REGISTER/ SIGN UP
-    signUp: async (context, payload) => {
-      fetch("https://zoe-capstone-api.herokuapp.com/users/register", {
-        method: "POST",
-        body: JSON.stringify({
-          user_fullname: payload.user_full_name,
-          user_email: payload.user_email,
-          user_password: payload.user_password,
+    // signUp: async (context, payload) => {
+    //   fetch("https://zoe-capstone-api.herokuapp.com/users/register", {
+    //     method: "POST",
+    //     body: JSON.stringify({
+    //       user_fullname: payload.user_full_name,
+    //       user_email: payload.user_email,
+    //       user_password: payload.user_password,
 
-          join_date: "2023-06-03",
-          user_type: "user",
-        }),
-        headers: {
-          "Content-type": "application/json",
-        },
-      })
-        .then((response) => response.json())
-        .then((data) => console.log(data));
-    },
+    //       join_date: "2023-06-03",
+    //       user_type: "user",
+    //     }),
+    //     headers: {
+    //       "Content-type": "application/json",
+    //     },
+    //   })
+    //     .then((response) => response.json())
+    //     .then((data) => console.log(data));
+    // },
     // CREATE USER
     createUser: async (context, user) => {
       fetch("https://zoe-capstone-api.herokuapp.com/users/register", {
@@ -104,9 +111,9 @@ export default createStore({
       })
         .then((response) => response.json())
         .then((json) => console.log(json));
-      console.log(
-        `user ${(user.user_fullname, user.user_email)} created successfully`
-      );
+      // console.log(
+      //   `user ${(user.user_fullname, user.user_email)} created successfully`
+      // );
     },
     // USERS
     // SHOW ALL USERS

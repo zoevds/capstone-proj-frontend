@@ -118,7 +118,7 @@ nav a.router-link-exact-active {
   html {
     overflow-x: hidden;
   }
-  i#profile-icon {
+  #profile-icon {
     margin-left: 0.1rem;
     margin-top: 0.2rem;
     margin-bottom: 0.3rem;

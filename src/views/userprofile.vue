@@ -6,14 +6,16 @@
           <h1 id="userprofile-head1">Your Profile</h1>
           <div class="row">
             <div class="col">
-              <div v-if="user.user_gender === 'male'">
+              <div v-if="user.user_gender == !'male'">
                 <img
+                  id="maleprofile"
                   src="https://i.postimg.cc/RV7gBGnJ/profile.png"
                   alt="Male Profile"
                 />
               </div>
               <div v-else>
                 <img
+                  id="femaleprofile"
                   src="https://i.postimg.cc/tRh3ZJRL/user.png"
                   alt="Female Profile"
                 />
@@ -91,5 +93,10 @@ export default {
   font-size: 3rem;
   text-shadow: 4px 4px 8px black;
   padding: 2rem;
+}
+#femaleprofile,
+#maleprofile {
+  width: 18rem;
+  height: 18rem;
 }
 </style>

@@ -48,7 +48,7 @@
               id="reg-sendbtn"
               type="submit"
               class="btn"
-              @click.prevent="register()"
+              @click.prevent="createUser"
             >
               Register
             </button>
@@ -91,7 +91,7 @@ export default {
     //     user_fullname: this.user_fullname,
     //     user_email: this.user_email,
     //     user_password:this.user_password
-       
+
     //   });
     // },
   },
