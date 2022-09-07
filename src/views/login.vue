@@ -142,7 +142,7 @@ export default {
 .fooooter {
   color: white;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 375px) {
   #landing-head1 {
     font-size: 4rem;
   }

@@ -166,6 +166,7 @@ img#arrowimg:hover {
   justify-content: end;
   font-size: 2rem;
   color: white;
+  margin-bottom: 2rem;
 }
 /* #arrowhref {
   color: white;
@@ -173,7 +174,7 @@ img#arrowimg:hover {
 #arrowup:hover {
   color: black;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 375px) {
   body,
   html {
     overflow-x: hidden;

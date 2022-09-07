@@ -57,7 +57,7 @@ body {
 link:hover {
   color: black;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 375px) {
   body,
   html {
     overflow-x: hidden;

@@ -121,7 +121,7 @@ export default {
   color: #2c3e50;
   border: none;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 375px) {
   body,
   html {
     overflow-x: hidden;

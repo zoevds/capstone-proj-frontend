@@ -6,7 +6,7 @@
           <h1 id="userprofile-head1">Your Profile</h1>
           <div class="row">
             <div class="col">
-              <div v-if="user.user_gender ==!'male'">
+              <div v-if="user.user_gender == !'male'">
                 <img
                   id="maleprofile"
                   src="https://i.postimg.cc/RV7gBGnJ/profile.png"
@@ -23,22 +23,22 @@
             </div>
             <div class="col">
               <div class="row">
-                <div class="col">
-                  {{ user.user_fullname }}
+                <div id="userprofilename" class="col">
+                  Name: {{ user.user_fullname }}
                 </div>
               </div>
               <div class="row">
-                <div class="col">
-                  {{ user.user_email }}
+                <div id="userprofileemail" class="col">
+                  Email: {{ user.user_email }}
                 </div>
               </div>
               <div class="row">
-                <div class="col">
-                  {{ user.user_type }}
+                <div id="userprofiletype" class="col">
+                  User Type: {{ user.user_type }}
                 </div>
               </div>
               <div class="row">
-                <div class="col">
+                <div id="userprofilecart" class="col">
                   {{ user.user_cart }}
                 </div>
               </div>
@@ -80,8 +80,8 @@ export default {
 }
 #profilecard {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
-  width: 75rem;
-  height: 33rem;
+  width: 64rem;
+  height: 30rem;
   margin-top: 6rem;
 }
 #profile-cont {
@@ -98,5 +98,11 @@ export default {
 #maleprofile {
   width: 18rem;
   height: 18rem;
+}
+#userprofilename,
+#userprofileemail,
+#userprofiletype,
+#userprofilecart {
+  color: white;
 }
 </style>

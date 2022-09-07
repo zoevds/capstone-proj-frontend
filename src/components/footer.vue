@@ -1,5 +1,7 @@
 <template>
-  <div id="footer"></div>
+  <div id="footer">
+    <div>2022 @Copyright Zoe Van Der Schyff</div>
+  </div>
 </template>
 <script>
 export default {};
@@ -7,7 +9,7 @@ export default {};
 <style>
 #footer {
   background-color: #152d35;
-  /* width: 10rem; */
+  width: 10rem;
   height: 4rem;
 }
 </style>

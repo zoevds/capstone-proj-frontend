@@ -5,8 +5,8 @@
         ><img
           id="logoimg"
           src="https://i.postimg.cc/ryDTSrRM/vmax-logo-icon.jpg"
-          alt="logo image" /></a
-      >|
+          alt="logo image"
+      /></a>
       <button
         id="navbartogg"
         class="navbar-toggler"
@@ -18,28 +18,28 @@
         aria-label="Toggle navigation"
       >
         <span class="navbar-toggler-icon"></span>
-      </button>
+      </button> 
       <div class="collapse navbar-collapse" id="Toggler">
         <ul id="ul" class="navbar-nav mb-1 mb-lg-0">
           <li class="nav-item">
-            <router-link to="/landing">Home</router-link> |
-          </li>
+            <router-link to="/landing">Home</router-link>
+          </li>|
           <li v-if="user" class="nav-item">
-            <router-link to="/about">About</router-link> |
-          </li>
+            <router-link to="/about">About</router-link>
+          </li>|
           <li v-if="user" class="nav-item">
-            <router-link to="/products">Products</router-link> |
-          </li>
+            <router-link to="/products">Products</router-link>
+          </li>|
           <li v-if="user" class="nav-item">
-            <router-link to="/contact">Contact</router-link>|
-          </li>
-          <li class="nav-item"><router-link to="/">Login</router-link>|</li>
+            <router-link to="/contact">Contact</router-link>
+          </li>|
+          <li class="nav-item"><router-link to="/">Login</router-link></li>|
           <li class="nav-item">
-            <router-link to="/register">Register</router-link>|
-          </li>
+            <router-link to="/register">Register</router-link>
+          </li>|
           <li v-if="user" class="nav-item">
-            <router-link to="/cart"> Cart</router-link>|
-          </li>
+            <router-link to="/cart"> Cart</router-link>
+          </li>|
           <li v-if="user" class="nav-item">
             <router-link
               :to="{ name: 'userprofile', params: { id: user.user_id } }"
@@ -47,8 +47,8 @@
                 id="profile-icon"
                 class="fa-solid fa-id-badge"
               ></i></router-link
-            >|
-          </li>
+            >
+          </li>|
           <li class="nav-item">
             <button @click="logout()">
               <i class="fa-solid fa-right-from-bracket"></i>
@@ -97,6 +97,8 @@ nav a {
   font-weight: bold;
   color: #e8f9fd;
   text-decoration: none;
+  display: flex;
+  justify-content: space-between;
 }
 
 nav a.router-link-exact-active {
@@ -115,9 +117,12 @@ nav a.router-link-exact-active {
 }
 #profile-icon {
   font-size: 1.8rem;
-  margin-left: 48rem;
+  margin-left: 45rem;
 }
-@media only screen and (max-width: 600px) {
+/* #li.nav-item {
+  margin-bottom: -2rem;
+} */
+@media only screen and (max-width: 375px) {
   .navbar {
     width: 100%;
     padding: 1rem;
