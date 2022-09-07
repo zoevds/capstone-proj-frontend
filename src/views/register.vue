@@ -6,52 +6,102 @@
           <h1 id="registerhead1">Register</h1>
         </div>
         <div class="col">
-          <!-- input1 -->
-          <div class="form-floating mt-5 mb-2 p-3">
-            <input
-              type="fullname"
-              class="form-control"
-              id="floatingInput1"
-              placeholder="Fullname"
-            />
-            <label class="text-light mt-3 text-center" for="floatingInput1"
-              >Fullname</label
-            >
-          </div>
-          <!-- input2 -->
-          <div class="form-floating mb-2 p-3">
-            <input
-              type="email"
-              class="form-control"
-              id="floatingInput"
-              placeholder="name@example.com"
-            />
-            <label class="text-light mt-3 text-center" for="floatingInput"
-              >Email address</label
-            >
-          </div>
-          <!-- input3 -->
+          <form @submit.prevent="createUser()">
+            <!-- input1 -->
+            <div class="form-floating mt-5 mb-2 p-3">
+              <input
+                type="fullname"
+                class="form-control"
+                id="floatingInput1"
+                placeholder="Fullname"
+              />
+              <label class="text-light mt-3 text-center" for="floatingInput1"
+                >Fullname</label
+              >
+            </div>
+            <!-- input2 -->
+            <div class="form-floating mb-2 p-3">
+              <input
+                type="email"
+                class="form-control"
+                id="floatingInput"
+                placeholder="name@example.com"
+              />
+              <label class="text-light mt-3 text-center" for="floatingInput"
+                >Email address</label
+              >
+            </div>
+            <!-- input3 -->
 
-          <div class="form-floating mb-3 p-3">
-            <input
-              type="password"
-              class="form-control"
-              id="floatingPassword"
-              placeholder="Password"
-            />
-            <label class="text-light mt-3 text-center" for="floatingPassword"
-              >Password</label
+            <div class="form-floating mb-3 p-3">
+              <input
+                type="password"
+                class="form-control"
+                id="floatingPassword"
+                placeholder="Password"
+              />
+              <label class="text-light mt-3 text-center" for="floatingPassword"
+                >Password</label
+              >
+            </div>
+            <button
+              id="reg-sendbtn"
+              type="submit"
+              class="btn"
+              @click.prevent="register()"
             >
-          </div>
-          <button id="reg-sendbtn" type="button" class="btn">Register</button>
+              Register
+            </button>
+          </form>
         </div>
       </div>
-      <a href="/login">Login</a>
+      <a href="/">Login</a>
     </div>
   </section>
 </template>
 <script>
-export default {};
+export default {
+  components: {},
+  data() {
+    return {
+      user_fullname: "",
+      user_email: "",
+      user_billing_address: "",
+      user_shipping_address: "",
+      user_order_date: "",
+      user_password: "",
+      user_type: "",
+      showError: false,
+    };
+  },
+  methods: {
+    createUser() {
+      this.$store.dispatch("createUser", {
+        user_fullname: this.user_fullname,
+        user_email: this.user_email,
+        user_billing_address: this.user_billing_address,
+        user_shipping_address: this.user_shipping_address,
+        user_order_date: this.user_order_date,
+        user_password: this.user_password,
+        user_type: this.user_type,
+      });
+    },
+    // register() {
+    //   this.$store.dispatch("register", {
+    //     user_fullname: this.user_fullname,
+    //     user_email: this.user_email,
+    //     user_password:this.user_password
+       
+    //   });
+    // },
+  },
+  computed: {
+    user() {
+      console.log(this.$store.state.user);
+      return this.$store.state.user;
+    },
+  },
+};
 </script>
 <style>
 @font-face {

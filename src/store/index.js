@@ -1,9 +1,11 @@
 import router from "../router/index";
 import { createStore } from "vuex";
+import createPersistedState from "vuex-persistedstate";
 
 export default createStore({
   state: {
     user: null,
+    users: null,
     product: null,
     products: null,
     flavour: null,
@@ -91,10 +93,33 @@ export default createStore({
         .then((response) => response.json())
         .then((data) => console.log(data));
     },
+    // CREATE USER
+    createUser: async (context, user) => {
+      fetch("https://zoe-capstone-api.herokuapp.com/users/register", {
+        method: "POST",
+        body: JSON.stringify(user),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => console.log(json));
+      console.log(
+        `user ${(user.user_fullname, user.user_email)} created successfully`
+      );
+    },
     // USERS
     // SHOW ALL USERS
     getUsers: async (context) => {
       fetch("https://zoe-capstone-api.herokuapp.com/users")
+        .then((res) => res.json())
+        .then((data) => context.commit("setUsers", data))
+        .catch((err) => console.log(err.message));
+    },
+    // SHOW ONE USER
+    getUser: async (context, id) => {
+      console.log(user.user_id);
+      fetch("https://zoe-capstone-api.herokuapp.com/users/" + id)
         .then((res) => res.json())
         .then((data) => context.commit("setUsers", data))
         .catch((err) => console.log(err.message));
@@ -181,4 +206,5 @@ export default createStore({
     },
   },
   modules: {},
+  plugins: [createPersistedState()],
 });

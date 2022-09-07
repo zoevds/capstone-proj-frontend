@@ -13,6 +13,7 @@
           class="form-control"
           id="floatingInput11"
           placeholder="Fullname"
+          name="Fullname"
         />
         <label class="text-light mt-3 text-center" for="floatingInput11"
           >Fullname</label
@@ -25,6 +26,7 @@
           class="form-control"
           id="emailInput1"
           placeholder="name@example.com"
+          name="email"
         />
         <label class="text-light mt-3 text-center" for="emailInput1"
           >Email address</label
@@ -38,6 +40,7 @@
           class="form-control"
           id="floatingmessage"
           placeholder="Message"
+          name="message"
         />
         <label class="text-light mt-3 text-center" for="floatingmessage"
           >Message</label
@@ -50,7 +53,11 @@
   </section>
 </template>
 <script>
-export default {};
+export default {
+  methods: {
+    submit() {},
+  },
+};
 </script>
 <style>
 @font-face {

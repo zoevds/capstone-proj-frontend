@@ -65,7 +65,6 @@
       >
         <div id="prodcard" class="card">
           <div class="col">
-           
             <h1 id="prodhead1">{{ product.product_name }}</h1>
             <!-- </div> -->
             <!-- <div class="col"> -->
@@ -657,6 +656,56 @@ input:not(:placeholder-shown) ~ .reset {
   body,
   html {
     overflow-x: hidden;
+  }
+  #producthead1 {
+    font-size: 3rem;
+
+    padding: 6rem;
+    margin-top: 5rem;
+    margin-left: -3rem;
+  }
+  #prodpg {
+    font-size: 1.5rem;
+    margin-top: -4rem;
+    padding: 2rem;
+  }
+  div#prodcard {
+    height: 36rem;
+    width: 21rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+  }
+  #prodimg {
+    width: 19rem;
+
+    margin-bottom: 1rem;
+  }
+  .prodwrapper .prodicon {
+    margin-top: -1.5rem;
+  }
+  #flavhead1 {
+    font-size: 2.5rem;
+  }
+  #flavpg {
+    font-size: 1.6rem;
+
+    padding: 1rem;
+  }
+  .p-5 {
+    padding: 1rem !important;
+  }
+  #flavcard {
+    width: 331px;
+    height: 490px;
+    padding: 2rem;
+  }
+  img#flavimg {
+    margin-bottom: 1rem;
+  }
+  .form {
+    --width-of-input: 21rem;
+
+    margin-left: 1.2rem;
   }
 }
 </style>

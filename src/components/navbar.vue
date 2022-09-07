@@ -8,6 +8,7 @@
           alt="logo image" /></a
       >|
       <button
+        id="navbartogg"
         class="navbar-toggler"
         type="button"
         data-bs-toggle="collapse"
@@ -20,7 +21,9 @@
       </button>
       <div class="collapse navbar-collapse" id="Toggler">
         <ul id="ul" class="navbar-nav mb-1 mb-lg-0">
-          <li class="nav-item"><router-link to="/">Home</router-link> |</li>
+          <li class="nav-item">
+            <router-link to="/landing">Home</router-link> |
+          </li>
           <li class="nav-item">
             <router-link to="/about">About</router-link> |
           </li>
@@ -30,27 +33,37 @@
           <li class="nav-item">
             <router-link to="/contact">Contact</router-link>|
           </li>
-          <li class="nav-item">
-            <router-link to="/login">Login</router-link>|
-          </li>
+          <li class="nav-item"><router-link to="/">Login</router-link>|</li>
           <li class="nav-item">
             <router-link to="/register">Register</router-link>|
           </li>
           <li class="nav-item"><router-link to="/cart"> Cart</router-link>|</li>
           <li class="nav-item">
-            <router-link to="/userprofile"
+            <router-link
+              :to="{ name: 'userprofile', params: { id: user.user_id } }"
               ><i
                 id="profile-icon"
                 class="fa-solid fa-id-badge"
               ></i></router-link
             >|
           </li>
+          <li class="nav-item">
+            <button><i class="fa-solid fa-right-from-bracket"></i></button>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 </template>
-
+<script>
+export default {
+  computed: {
+    user() {
+      return this.$store.state.user;
+    },
+  },
+};
+</script>
 <style>
 #app {
   font-family: "Aboreto", cursive;
@@ -88,9 +101,12 @@ nav a.router-link-exact-active {
   align-items: center;
   margin-bottom: -0.5rem;
 }
+#navbartogg {
+  background-color: grey;
+}
 #profile-icon {
-  font-size: 1.5rem;
-  margin-left: 1.5rem;
+  font-size: 1.8rem;
+  margin-left: 48rem;
 }
 @media only screen and (max-width: 600px) {
   .navbar {
@@ -101,6 +117,11 @@ nav a.router-link-exact-active {
   body,
   html {
     overflow-x: hidden;
+  }
+  i#profile-icon {
+    margin-left: 0.1rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.3rem;
   }
 }
 </style>

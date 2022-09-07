@@ -1,14 +1,45 @@
 <template>
   <section id="userprofile">
     <div id="profile-cont" class="container">
-      <div v-for="user in users" :key="user.user_id" :user="user">
+      <div>
         <div id="profilecard" class="card">
           <h1 id="userprofile-head1">Your Profile</h1>
           <div class="row">
-            <div class="col">name</div>
             <div class="col">
-              <!-- <h3>{{ user.user_fullname }}</h3>
-              <p>{{ user.user_cart }}</p> -->
+              <div v-if="user.user_gender === 'male'">
+                <img
+                  src="https://i.postimg.cc/RV7gBGnJ/profile.png"
+                  alt="Male Profile"
+                />
+              </div>
+              <div v-else>
+                <img
+                  src="https://i.postimg.cc/tRh3ZJRL/user.png"
+                  alt="Female Profile"
+                />
+              </div>
+            </div>
+            <div class="col">
+              <div class="row">
+                <div class="col">
+                  {{ user.user_fullname }}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  {{ user.user_email }}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  {{ user.user_type }}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  {{ user.user_cart }}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -17,7 +48,18 @@
   </section>
 </template>
 <script>
-export default {};
+export default {
+  props: ["id"],
+  computed: {
+    user() {
+      return this.$store.state.user;
+    },
+  },
+  mounted() {
+    console.log(this.$route.params.id);
+    this.$store.dispatch("getProduct", this.$route.params.id);
+  },
+};
 </script>
 <style scoped>
 @font-face {

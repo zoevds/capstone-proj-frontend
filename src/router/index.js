@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
   {
-    path: "/",
+    path: "/landing",
     name: "landing",
     component: () => import("../views/landing.vue"),
   },
@@ -34,7 +34,7 @@ const routes = [
     component: () => import("../views/contact.vue"),
   },
   {
-    path: "/login",
+    path: "/",
     name: "login",
     component: () => import("../views/login.vue"),
   },
@@ -54,9 +54,10 @@ const routes = [
     component: () => import("../views/cart.vue"),
   },
   {
-    path: "/userprofile",
+    path: "/userprofile/:id",
     name: "userprofile",
     component: () => import("../views/userprofile.vue"),
+    props: true,
   },
 ];
 

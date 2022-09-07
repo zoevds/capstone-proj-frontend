@@ -180,4 +180,20 @@ export default {
   background: grey;
   color: black;
 }
+@media only screen and (max-width: 600px) {
+  #singleflavcard {
+    width: 21.5rem;
+
+    margin-top: 8rem;
+  }
+  p#singleflavname {
+    margin-top: -3rem;
+    font-size: 2.5rem;
+  }
+  .flavwrapper .flavicon {
+    width: 5rem;
+
+    margin-right: 1rem;
+  }
+}
 </style>

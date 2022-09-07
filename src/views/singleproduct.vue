@@ -3,7 +3,8 @@
     <div v-if="product">
       <div
         v-for="product in product"
-        :key="product.product_id" class="item"
+        :key="product.product_id"
+        class="item"
         :product="product"
       >
         <div class="d-flex justify-content-center">
@@ -188,5 +189,20 @@ export default {
 .productwrapper .productcart:hover .producttooltip::before {
   background: grey;
   color: black;
+}
+@media only screen and (max-width: 600px) {
+  div#singlecard {
+    width: 21.5rem;
+    margin-top: 8rem;
+  }
+  p#singleprodname {
+    margin-top: -4rem;
+  }
+  .productwrapper .producticon {
+    width: 5rem;
+    height: 50px;
+
+    margin-right: 1rem;
+  }
 }
 </style>
