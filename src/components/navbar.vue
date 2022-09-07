@@ -39,14 +39,16 @@
           </li>
           <li class="nav-item"><router-link to="/cart"> Cart</router-link>|</li>
           <li class="nav-item">
-            <router-link
+            <!-- <router-link
               :to="{ name: 'userprofile', params: { id: user.user_id } }"
               ><i
                 id="profile-icon"
                 class="fa-solid fa-id-badge"
               ></i></router-link
             >|
+          </li> -->
           </li>
+
           <li class="nav-item">
             <button><i class="fa-solid fa-right-from-bracket"></i></button>
           </li>
