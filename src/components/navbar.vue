@@ -18,37 +18,42 @@
         aria-label="Toggle navigation"
       >
         <span class="navbar-toggler-icon"></span>
-      </button> 
+      </button>
       <div class="collapse navbar-collapse" id="Toggler">
         <ul id="ul" class="navbar-nav mb-1 mb-lg-0">
           <li class="nav-item">
             <router-link to="/landing">Home</router-link>
-          </li>|
+          </li>
+          |
           <li v-if="user" class="nav-item">
             <router-link to="/about">About</router-link>
-          </li>|
+          </li>
+          |
           <li v-if="user" class="nav-item">
             <router-link to="/products">Products</router-link>
-          </li>|
+          </li>
+          |
           <li v-if="user" class="nav-item">
             <router-link to="/contact">Contact</router-link>
-          </li>|
-          <li class="nav-item"><router-link to="/">Login</router-link></li>|
+          </li>
+          |
+          <li class="nav-item"><router-link to="/">Login</router-link></li>
+          |
           <li class="nav-item">
             <router-link to="/register">Register</router-link>
-          </li>|
+          </li>
+          |
           <li v-if="user" class="nav-item">
             <router-link to="/cart"> Cart</router-link>
-          </li>|
+          </li>
+          |
           <li v-if="user" class="nav-item">
             <router-link
               :to="{ name: 'userprofile', params: { id: user.user_id } }"
-              ><i
-                id="profile-icon"
-                class="fa-solid fa-id-badge"
-              ></i></router-link
-            >
-          </li>|
+              ><i id="profile-icon" class="fa-solid fa-id-badge"></i
+            ></router-link>
+          </li>
+          |
           <li class="nav-item">
             <button @click="logout()">
               <i class="fa-solid fa-right-from-bracket"></i>
@@ -124,8 +129,14 @@ nav a.router-link-exact-active {
 } */
 @media only screen and (max-width: 375px) {
   .navbar {
-    width: 100%;
-    padding: 1rem;
+    background-color: black;
+    border-radius: 12px;
+    /* margin-top: 1.5rem; */
+    z-index: 100;
+    position: fixed;
+    width: 70%;
+    padding: 20px;
+    margin-top: 1.5rem;
   }
 
   body,
@@ -137,5 +148,6 @@ nav a.router-link-exact-active {
     margin-top: 0.2rem;
     margin-bottom: 0.3rem;
   }
+  
 }
 </style>

@@ -121,12 +121,12 @@ export default {
   padding: 4rem;
   margin-top: 3rem;
 }
+
 #loginhead1 {
   color: white;
   font-family: brush;
   padding: 1rem;
   font-size: 7rem;
-
   translate: 90deg;
   transform: rotate(-90deg);
   margin-top: 12rem;
@@ -142,30 +142,39 @@ export default {
 .fooooter {
   color: white;
 }
+#loginhead2 {
+  display: none;
+}
 @media only screen and (max-width: 375px) {
-  #landing-head1 {
-    font-size: 4rem;
+  #logincard {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    width: 21.5rem;
+    height: 33rem;
+    box-shadow: 3px 3px 4px black;
+    margin-top: 6rem;
+    border-radius: 8px;
   }
-  #logincard[data-v-7589b93f] {
-    width: 20rem;
-  }
-  #loginhead1[data-v-7589b93f] {
-    padding: 1rem;
-    font-size: 3rem;
-    translate: 90deg;
-    transform: rotate(-0deg);
-    margin-top: 1rem;
-    margin-bottom: -2rem;
-  }
-  #col-6[data-v-7589b93f] {
+
+  #col-6 {
     padding: 3rem;
     margin-top: -0.5rem;
   }
+  #loginhead1[data-v-7589b93f] {
+    color: white;
+    font-family: brush;
+    padding: 1rem;
+    font-size: 4rem;
+    translate: 90deg;
+    transform: rotate(0deg);
+    margin-top: 0rem;
+  }
   #emailInput[data-v-7589b93f],
   #Passwordinput[data-v-7589b93f] {
-    width: 16rem;
+    width: 15rem;
     height: 4rem;
-    margin-left: -1.2rem;
+    border: none;
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
+    color: white;
   }
 }
 </style>
