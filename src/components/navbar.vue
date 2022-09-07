@@ -24,20 +24,22 @@
           <li class="nav-item">
             <router-link to="/landing">Home</router-link> |
           </li>
-          <li class="nav-item">
+          <li v-if="user" class="nav-item">
             <router-link to="/about">About</router-link> |
           </li>
-          <li class="nav-item">
+          <li v-if="user" class="nav-item">
             <router-link to="/products">Products</router-link> |
           </li>
-          <li class="nav-item">
+          <li v-if="user" class="nav-item">
             <router-link to="/contact">Contact</router-link>|
           </li>
           <li class="nav-item"><router-link to="/">Login</router-link>|</li>
           <li class="nav-item">
             <router-link to="/register">Register</router-link>|
           </li>
-          <li class="nav-item"><router-link to="/cart"> Cart</router-link>|</li>
+          <li v-if="user" class="nav-item">
+            <router-link to="/cart"> Cart</router-link>|
+          </li>
           <li v-if="user" class="nav-item">
             <router-link
               :to="{ name: 'userprofile', params: { id: user.user_id } }"

@@ -275,7 +275,7 @@ img#flavimg {
 #flavours {
   min-height: 50vh;
   background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-    url();
+    url(https://i.postimg.cc/g0MNS1yp/pexels-renz-macorol-3545426.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
