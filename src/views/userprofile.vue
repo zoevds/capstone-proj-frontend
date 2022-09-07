@@ -6,7 +6,7 @@
           <h1 id="userprofile-head1">Your Profile</h1>
           <div class="row">
             <div class="col">
-              <div v-if="user.user_gender == !'male'">
+              <div v-if="user.user_gender ==!'male'">
                 <img
                   id="maleprofile"
                   src="https://i.postimg.cc/RV7gBGnJ/profile.png"
