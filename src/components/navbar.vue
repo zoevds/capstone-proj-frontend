@@ -38,7 +38,7 @@
             <router-link to="/register">Register</router-link>|
           </li>
           <li class="nav-item"><router-link to="/cart"> Cart</router-link>|</li>
-          <li class="nav-item">
+          <li v-if="user" class="nav-item">
             <router-link
               :to="{ name: 'userprofile', params: { id: user.user_id } }"
               ><i
