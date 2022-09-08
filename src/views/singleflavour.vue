@@ -180,7 +180,7 @@ export default {
   background: grey;
   color: black;
 }
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 600px) {
   #singleflavcard {
     width: 21.5rem;
 

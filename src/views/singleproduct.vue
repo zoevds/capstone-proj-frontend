@@ -190,7 +190,7 @@ export default {
   background: grey;
   color: black;
 }
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 600px) {
   div#singlecard {
     width: 21.5rem;
     margin-top: 8rem;
