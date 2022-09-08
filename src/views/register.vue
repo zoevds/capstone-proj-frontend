@@ -173,7 +173,7 @@ export default {
   padding: 3rem;
   margin-top: 2rem;
 } */
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 600px) {
   body,
   html {
     overflow-x: hidden;

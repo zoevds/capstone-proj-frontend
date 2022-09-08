@@ -127,7 +127,7 @@ nav a.router-link-exact-active {
 /* #li.nav-item {
   margin-bottom: -2rem;
 } */
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 600px) {
   .navbar {
     background-color: black;
     border-radius: 12px;
@@ -148,6 +148,5 @@ nav a.router-link-exact-active {
     margin-top: 0.2rem;
     margin-bottom: 0.3rem;
   }
-  
 }
 </style>

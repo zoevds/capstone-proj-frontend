@@ -145,7 +145,7 @@ export default {
 #loginhead2 {
   display: none;
 }
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 600px) {
   #logincard {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
     width: 21.5rem;
