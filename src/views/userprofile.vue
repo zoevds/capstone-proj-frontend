@@ -82,7 +82,7 @@ export default {
 }
 #profilecard {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
-  width: 58rem;
+  width: 63rem;
   height: 32rem;
   /* margin-top: 6rem; */
 }
