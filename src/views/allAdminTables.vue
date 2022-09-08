@@ -494,7 +494,7 @@ export default {
   background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
   /* padding: 3rem; */
   color: white;
-  width: 75rem;
+  width: 85rem;
   margin-left: 5rem;
 }
 #prodimage,
