@@ -21,7 +21,7 @@
                 />
               </div>
             </div>
-            <div class="col">
+            <div id="content-col" class="col">
               <div class="row">
                 <div id="userprofilename" class="col">
                   Name: {{ user.user_fullname }}
@@ -39,7 +39,9 @@
               </div>
               <div class="row">
                 <div id="userprofilecart" class="col">
-                  {{ user.user_cart }}
+                  <button id="usercartbtn">
+                    Your Cart{{ user.user_cart }}
+                  </button>
                 </div>
               </div>
             </div>
@@ -104,7 +106,16 @@ export default {
 #userprofiletype,
 #userprofilecart {
   color: white;
+  margin-bottom: 1rem;
 }
+#usercartbtn {
+  background-color: black;
+  color: white;
+}
+#content-col {
+  margin-top: 4rem;
+}
+
 @media only screen and (max-width: 600px) {
   #profilecard {
     width: 21rem;
@@ -121,6 +132,15 @@ export default {
     width: 10rem;
     height: 10rem;
     margin-bottom: 2rem;
+  }
+  #userprofilename,
+  #userprofileemail,
+  #userprofiletype,
+  #userprofilecart {
+    margin-bottom: 1rem;
+  }
+  #content-col {
+    margin-top: 0.5rem;
   }
 }
 </style>
