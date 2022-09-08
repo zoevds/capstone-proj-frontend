@@ -55,6 +55,22 @@
         class="col-lg-4"
       ></div>
     </div>
+    <select
+      name="categories"
+      v-model="categories"
+      id="productselect"
+      class="form-select"
+      aria-label="Default select example"
+    >
+      <option id="selectopt" selected>All</option>
+      <option id="selectopt" value="VMAX 1.0">VMAX 1.0</option>
+      <option id="selectopt" value="VMAX 1.5">VMAX 1.5</option>
+      <option id="selectopt" value="VMAX 2.0">VMAX 2.0</option>
+      <option id="selectopt" value="VMAX 2.5">VMAX 2.5</option>
+      <option id="selectopt" value="VMAX 255">VMAX 255</option>
+      <option id="selectopt" value="VMAX max">VMAX max</option>
+      <option id="selectopt" value="VMAX pro">VMAX pro</option>
+    </select>
     <!-- <div class="col"> -->
     <div v-if="products" id="container">
       <div
@@ -178,6 +194,17 @@
 </template>
 <script>
 export default {
+  data() {
+    return {
+      search: "",
+      categories: "All",
+    };
+  },
+  sortByPrice() {
+      //gives function a name (does not need to be the same as the name given in the store)
+      this.$store.commit("sortByPrice"); //runs the function in the store
+    },
+  
   mounted() {
     this.$store.dispatch("getProducts");
     this.$store.dispatch("getFlavours");
@@ -195,8 +222,12 @@ export default {
     return this.$store.state.products?.filter((product) => {
       let isMatch = true;
       if (
-        !product.product_name?.toLowerCase().includes(this.search.toLowerCase())
+        !product.category_type
+          ?.toLowerCase()
+          .includes(this.search.toLowerCase())
       )
+        isMatch = false;
+      if (this.categories !== "All" && product.categories !== this.categories)
         isMatch = false;
       return isMatch;
     });
@@ -255,6 +286,18 @@ html {
 #pricerow {
   display: flex;
   justify-content: center;
+}
+/* product select */
+#productselect {
+  width: 20rem;
+  margin-bottom: 2rem;
+  margin-left: 35rem;
+  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45));
+  color: white;
+  border: none;
+}
+#selectopt {
+  color: black;
 }
 #products {
   background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
@@ -706,6 +749,11 @@ input:not(:placeholder-shown) ~ .reset {
     --width-of-input: 21rem;
 
     margin-left: 1.2rem;
+  }
+  #productselect {
+    width: 15rem;
+    margin-bottom: 2rem;
+    margin-left: 4.3rem;
   }
 }
 </style>

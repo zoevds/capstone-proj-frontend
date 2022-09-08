@@ -106,65 +106,25 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">8</th>
-              <td>Zoe Van Der Schyff</td>
-              <td>zoevanderschyff13@gmail.com</td>
-              <td>555 avenue</td>
-              <td>frontstreet bayview</td>
-              <td>03/05/2022</td>
-              <td>admin</td>
-              <td></td>
-            </tr>
-            <tr>
-              <th scope="row">9</th>
-              <td>Fatima Galant</td>
-              <td>fatgal11@gmail.com</td>
-              <td>25 ocean view</td>
-              <td>montague beach</td>
-              <td>07/03/2022</td>
-              <td>user</td>
-              <td></td>
-            </tr>
-            <tr>
-              <th scope="row">10</th>
-              <td>Natheerah Abrahams</td>
-              <td>natab24@gmail.com</td>
-              <td>ostridge bridge</td>
-              <td>cavendish microwave</td>
-              <td>12/12/2022</td>
-              <td>user</td>
-              <td></td>
-            </tr>
-            <tr>
-              <th scope="row">11</th>
-              <td>Muneer palmer</td>
-              <td>munpal28@gmail.com</td>
-              <td>7 de laan</td>
-              <td>mozamque avenue</td>
-              <td>17/09/2022</td>
-              <td>user</td>
-              <td></td>
-            </tr>
-            <tr>
-              <th scope="row">12</th>
-              <td>Ricardo Ronan Moses</td>
-              <td>riricarcardodo@gmail.com</td>
-              <td>8 de lane</td>
-              <td>7 eleven</td>
-              <td>07/09/2022</td>
-              <td>user</td>
-              <td></td>
-            </tr>
-            <tr>
-              <th scope="row">13</th>
-              <td>Uzair Damonse</td>
-              <td>uzda24@gmail.com</td>
-              <td>millie</td>
-              <td>doctorplace</td>
-              <td>18/05/2022</td>
-              <td>user</td>
-              <td></td>
+            <tr v-for="user in users" :key="user.user_id">
+              <td>{{ user.user_id }}</td>
+              <td>{{ user.user_fullname }}</td>
+              <td>{{ user.user_email }}</td>
+              <td>{{ user.user_billing_address }}</td>
+              <!-- <td>
+                <img v-bind:src="user.user_imgURL" />
+              </td> -->
+              <td>{{ user.user_shipping_address }}</td>
+              <td>{{ user.user_order_date }}</td>
+              <td>{{ user.user_type }}</td>
+              <td>
+                <button type="btn">
+                  <i class="fa-solid fa-pen-to-square" @click="toggleModal"></i>
+                </button>
+                <button type="btn" @click="deleteproduct">
+                  <i class="fa-solid fa-trash-can"></i>
+                </button>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -209,6 +169,7 @@
                   name="text"
                   class="input"
                   placeholder="Product Name"
+                  v-model="product_name"
                 />
                 <!-- input 1 -->
                 <!-- input 2 -->
@@ -217,6 +178,7 @@
                   name="text"
                   class="input"
                   placeholder="Product Image URL"
+                  v-model="product_imgURL"
                 />
                 <!-- input 2 -->
                 <!-- input 3 -->
@@ -225,6 +187,7 @@
                   name="text"
                   class="input"
                   placeholder="Product Description"
+                  v-model="product_desc"
                 />
                 <!-- input 3 -->
                 <!-- input 4 -->
@@ -233,6 +196,7 @@
                   name="text"
                   class="input"
                   placeholder="Product Price"
+                  v-model="product_price"
                 />
                 <!-- input 4 -->
                 <!-- input 5 -->
@@ -241,6 +205,7 @@
                   name="text"
                   class="input"
                   placeholder="Product weight"
+                  v-model="product_weight"
                 />
                 <!-- input 5 -->
                 <!-- input 6 -->
@@ -249,11 +214,32 @@
                   name="text"
                   class="input"
                   placeholder="Product Category"
+                  v-model="product_category"
+                />
+                <input
+                  type="number"
+                  name="number"
+                  class="input"
+                  placeholder="Stock"
+                  v-model="stock"
+                />
+                <input
+                  type="text"
+                  name="text"
+                  class="input"
+                  placeholder="flavour"
+                  v-model="flavour"
                 />
                 <!-- input 6 -->
               </div>
               <div class="modal-footer bg-dark">
-                <button type="button" class="btn btn-primary">Save</button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  @click="createproduct"
+                >
+                  Save
+                </button>
               </div>
             </div>
           </div>
@@ -272,140 +258,31 @@
               <th scope="col">Img URL</th>
               <th scope="col">Weight</th>
               <th scope="col">Stock</th>
+              <th scope="col">Flavour</th>
               <th scope="col">Edit Product</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>VMAX 1.0</td>
+            <tr v-for="product in products" :key="product.product_id">
+              <td>{{ product.product_id }}</td>
+              <td>{{ product.product_name }}</td>
+              <td>{{ product.product_desc }}</td>
+              <td>{{ product.product_category }}</td>
+              <td>{{ product.product_price }}</td>
               <td>
-                VMAX 1.0 is one of the first disposable vapes that we made back
-                in 2020
+                <img v-bind:src="product.product_imgURL" class="product.img" />
               </td>
-              <td>1.0</td>
-              <td>R380</td>
+              <td>{{ product.product_weight }}</td>
+              <td>{{ product.stock }}</td>
+              <td>{{ product.flavour }}</td>
               <td>
-                <img
-                  id="prodimage"
-                  src="https://i.postimg.cc/qMctDyfL/pexels-jonathan-cooper-9419514.jpg"
-                  alt="prodimage"
-                />
+                <button type="btn">
+                  <i class="fa-solid fa-pen-to-square" @click="toggleModal"></i>
+                </button>
+                <button type="btn" @click="deleteproduct">
+                  <i class="fa-solid fa-trash-can"></i>
+                </button>
               </td>
-              <td>18</td>
-              <td>1</td>
-              <td></td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>VMAX 1.5</td>
-              <td>
-                VMAX 1.5 is of the newer vapes made in 2020 with more crisp
-                smoke
-              </td>
-              <td>1.5</td>
-              <td>R400</td>
-              <td>
-                <img
-                  id="prodimg"
-                  src="https://i.postimg.cc/43hLyzmt/pexels-thorn-yang-4834387.jpg"
-                  alt="prodimg"
-                />
-              </td>
-              <td>18</td>
-              <td>2</td>
-              <td></td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>VMAX 2.0</td>
-              <td>VMAX 2.0 has twice the amount of puffs than the 1.0 model</td>
-              <td>2.0</td>
-              <td>R480</td>
-              <td>
-                <img
-                  id="prodimg"
-                  src="https://i.postimg.cc/TYpHBMfC/pexels-ali-hassan-5533351.jpg"
-                  alt=""
-                />
-              </td>
-              <td>25</td>
-              <td>3</td>
-              <td></td>
-            </tr>
-            <tr>
-              <th scope="row">4</th>
-              <td>VMAX 2.5</td>
-              <td>VMAX 2.5 has twice the amount of puffs than the 1.5 model</td>
-              <td>2.5</td>
-              <td>R500</td>
-              <td>
-                <img
-                  id="prodimg"
-                  src="https://i.postimg.cc/9XqLBPpn/pexels-olena-bohovyk-11587589.jpg"
-                  alt="prodimg"
-                />
-              </td>
-              <td>29</td>
-              <td>4</td>
-              <td></td>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <td>VMAX 250</td>
-              <td>
-                VMAX 255 has 4 times the amount of puffs than the 2.5 model
-              </td>
-              <td>255</td>
-              <td>R700</td>
-              <td>
-                <img
-                  id="prodimg"
-                  src="https://i.postimg.cc/sfwgwSg5/pexels-lemkhanzar-12721921.jpg"
-                  alt="prodimg"
-                />
-              </td>
-              <td>35</td>
-              <td>5</td>
-              <td></td>
-            </tr>
-            <tr>
-              <th scope="row">6</th>
-              <td>VMAX max</td>
-              <td>
-                VMAX max has 6 times the amount of puffs than the 2.5 model
-              </td>
-              <td>max</td>
-              <td>R800</td>
-              <td>
-                <img
-                  id="prodimg"
-                  src="https://i.postimg.cc/N0jcyCRV/pexels-parich-sitthichai-4030818.jpg"
-                  alt="prodimg"
-                />
-              </td>
-              <td>40</td>
-              <td>6</td>
-              <td></td>
-            </tr>
-            <tr>
-              <th scope="row">7</th>
-              <td>VMAX pro</td>
-              <td>
-                VMAX pro has 6 times the amount of puffs than the max model
-              </td>
-              <td>pro</td>
-              <td>R950</td>
-              <td>
-                <img
-                  id="prodimg"
-                  src="https://i.postimg.cc/DzLqX5Fr/pexels-kateryna-naidenko-7398925.jpg"
-                  alt="prodimg"
-                />
-              </td>
-              <td>48</td>
-              <td>6</td>
-              <td></td>
             </tr>
           </tbody>
         </table>
@@ -450,6 +327,7 @@
                   name="text"
                   class="input"
                   placeholder="Flavour Name"
+                  v-model="flavour_name"
                 />
                 <!-- input 1 -->
                 <!-- input 2 -->
@@ -458,6 +336,7 @@
                   name="text"
                   class="input"
                   placeholder="Flavour Description"
+                  v-model="flavour_desc"
                 />
                 <!-- input 2 -->
                 <!-- input 3 -->
@@ -466,6 +345,7 @@
                   name="text"
                   class="input"
                   placeholder="Flavour image URL"
+                  v-model="flavour_imgURL"
                 />
                 <!-- input 3 -->
                 <!-- input 4 -->
@@ -474,11 +354,18 @@
                   name="text"
                   class="input"
                   placeholder="Flavour Price"
+                  v-model="flavour_price"
                 />
                 <!-- input 4 -->
               </div>
               <div class="modal-footer bg-dark">
-                <button type="button" class="btn btn-primary">Save</button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  @click="createflavour"
+                >
+                  Save
+                </button>
               </div>
             </div>
           </div>
@@ -498,177 +385,23 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Strawberry</td>
-              <td>strawberry taste like candy in your mouth</td>
+            <tr v-for="flavour in flavours" :key="flavour.flavour_id">
+              <td>{{ flavour.flavour_id }}</td>
+              <td>{{ flavour.flavour_name }}</td>
+              <td>{{ flavour.flavour_desc }}</td>
               <td>
-                <img
-                  id="flavimg"
-                  src="https://i.postimg.cc/fydsJTVS/strawberry-flavour.jpg"
-                  alt="flavimg"
-                />
+                <img v-bind:src="flavour.flavour_imgURL" class="product.img" />
               </td>
-              <td>R250</td>
+              <td>{{ flavour.flavour_price }}</td>
 
-              <td></td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>blueberry</td>
-              <td>blueberry is like bubble gum and grape</td>
               <td>
-                <img
-                  id="flavimg"
-                  src="https://i.postimg.cc/bJmJPvKx/blueberry-crisp.jpg"
-                  alt="flavimg"
-                />
+                <button type="btn">
+                  <i class="fa-solid fa-pen-to-square" @click="toggleModal"></i>
+                </button>
+                <button type="btn" @click="deleteproduct">
+                  <i class="fa-solid fa-trash-can"></i>
+                </button>
               </td>
-              <td>R270</td>
-
-              <td></td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Mint</td>
-              <td>Its Minty like apple fresh toothpaste</td>
-              <td>
-                <img
-                  id="flavimg"
-                  src="https://i.postimg.cc/RV70CX5C/mint-flavour.jpg"
-                  alt="flavimg"
-                />
-              </td>
-              <td>R300</td>
-
-              <td></td>
-            </tr>
-            <tr>
-              <th scope="row">4</th>
-              <td>Bubblegum</td>
-              <td>
-                Bubblegum tastes true-to-flavour of a sweet soft pink
-                wintergreen bubblegum.
-              </td>
-              <td>
-                <img
-                  id="flavimg"
-                  src="https://i.postimg.cc/4x3TC5XS/bubblegum.jpg"
-                  alt="flavimg"
-                />
-              </td>
-              <td>R320</td>
-
-              <td></td>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <td>Banana</td>
-              <td>
-                Banana flavor is creamy, sweet, and tasty just like the real
-                thing.
-              </td>
-              <td>
-                <img
-                  id="flavimg"
-                  src="https://i.postimg.cc/hGFM8DZ1/banana.jpg"
-                  alt="flavimg"
-                />
-              </td>
-              <td>R260</td>
-
-              <td></td>
-            </tr>
-            <tr>
-              <th scope="row">6</th>
-              <td>Mango</td>
-              <td>
-                The flavour presents us fruity, succulent tastes of fresh mangos
-                on exhale, accompanied by a cool, crisp note of mint.
-              </td>
-              <td>
-                <img
-                  id="flavimg"
-                  src="https://i.postimg.cc/Y0j1KZyS/mango-flavour.jpg"
-                  alt="flavimg"
-                />
-              </td>
-              <td>R360</td>
-
-              <td></td>
-            </tr>
-            <tr>
-              <th scope="row">7</th>
-              <td>litchi</td>
-              <td>
-                Litchi flavor best described as a cross between a mellow pear,
-                sweet berry and zesty grape.
-              </td>
-              <td>
-                <img
-                  id="flavimg"
-                  src="https://i.postimg.cc/xjkRZbr3/litchi-flavour.jpg"
-                  alt="flavimg"
-                />
-              </td>
-              <td>R380</td>
-
-              <td></td>
-            </tr>
-            <tr>
-              <th scope="row">8</th>
-              <td>litchi Rasberry</td>
-              <td>
-                Litchi and fruity raspberry that spread luxuriously over your
-                taste buds.
-              </td>
-              <td>
-                <img
-                  id="flavimg"
-                  src="https://i.postimg.cc/XY2B3QdG/litchi-rasberry.jpg"
-                  alt="flavimg"
-                />
-              </td>
-              <td>R400</td>
-
-              <td></td>
-            </tr>
-            <tr>
-              <th scope="row">9</th>
-              <td>Watermelon</td>
-              <td>
-                This flavour is a blend of watermelon, apple, and strawberry
-                flavor. It has a crisp, sweet taste that will make you feel as
-                though you are sipping on a fruit cocktail.
-              </td>
-              <td>
-                <img
-                  id="flavimg"
-                  src="https://i.postimg.cc/rsCC9xb1/watermelon-flavour.jpg"
-                  alt="flavimg"
-                />
-              </td>
-              <td>R370</td>
-
-              <td></td>
-            </tr>
-            <tr>
-              <th scope="row">10</th>
-              <td>Passion Fruit</td>
-              <td>
-                Passion Fruit has a zesty and tart taste and is therefore best
-                suited to vapers who like sour vape juices.
-              </td>
-              <td>
-                <img
-                  id="flavimg"
-                  src="https://i.postimg.cc/pT0P56Vz/passion-fruit.jpg"
-                  alt="flavimg"
-                />
-              </td>
-              <td>R400</td>
-
-              <td></td>
             </tr>
           </tbody>
         </table>
@@ -678,7 +411,67 @@
   </section>
 </template>
 <script>
-export default {};
+export default {
+  mounted() {
+    this.$store.dispatch("getProducts");
+    this.$store.dispatch("getUsers");
+    this.$store.dispatch("getFlavours");
+  },
+  data() {
+    return {
+      product_name: "",
+      product_desc: "",
+      product_category: "",
+      product_price: "",
+      product_imgURL: "",
+      product_weight: "",
+      stock: "",
+      flavour: "",
+    };
+  },
+  data() {
+    return {
+      flavour_name: "",
+      flavour_desc: "",
+      flavour_imgURL: "",
+      flavour_price: "",
+    };
+  },
+
+  computed: {
+    products() {
+      return this.$store.state.products;
+    },
+    users() {
+      return this.$store.state.users;
+    },
+    flavours() {
+      return this.$store.state.flavours;
+    },
+  },
+  methods: {
+    createproduct() {
+      return this.$store.dispatch("createproduct", {
+        product_name: this.product_name,
+        product_desc: this.product_desc,
+        product_category: this.product_category,
+        product_price: this.product_price,
+        product_imgURL: this.product_imgURL,
+        product_weight: this.product_weight,
+        stock: this.stock,
+        flavour: this.flavour,
+      });
+    },
+    createflavour() {
+      return this.$store.dispatch("createflavour", {
+        flavour_name: this.flavour_name,
+        flavour_desc: this.flavour_desc,
+        flavour_imgURL: this.flavour_imgURL,
+        flavour_price: this.flavour_price,
+      });
+    },
+  },
+};
 </script>
 <style scoped>
 #admintables {
@@ -701,7 +494,7 @@ export default {};
   background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
   /* padding: 3rem; */
   color: white;
-  width: 85rem;
+  width: 75rem;
   margin-left: 5rem;
 }
 #prodimage,
@@ -713,6 +506,10 @@ export default {};
   color: white;
   margin-top: 8rem;
   text-shadow: 5px 5px 10px black;
+}
+img.product\.img {
+  width: 15%;
+  height: auto;
 }
 #producttable1,
 #flavourtable1 {

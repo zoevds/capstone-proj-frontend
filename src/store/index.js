@@ -36,6 +36,15 @@ export default createStore({
     setToken: (state, token) => {
       state.token = token;
     },
+    setCart: (state, cart) => {
+      state.cart = cart;
+    },
+    updateCart: (state, product) => {
+      state.cart.push(product);
+    },
+    removeFromCart: (state, cart) => {
+      state.cart = cart;
+    },
     logout: (state) => {
       (state.user = ""),
         (state.Token = ""),
@@ -81,25 +90,7 @@ export default createStore({
         router.push("/products");
       }
     },
-    // REGISTER/ SIGN UP
-    // signUp: async (context, payload) => {
-    //   fetch("https://zoe-capstone-api.herokuapp.com/users/register", {
-    //     method: "POST",
-    //     body: JSON.stringify({
-    //       user_fullname: payload.user_full_name,
-    //       user_email: payload.user_email,
-    //       user_password: payload.user_password,
 
-    //       join_date: "2023-06-03",
-    //       user_type: "user",
-    //     }),
-    //     headers: {
-    //       "Content-type": "application/json",
-    //     },
-    //   })
-    //     .then((response) => response.json())
-    //     .then((data) => console.log(data));
-    // },
     // CREATE USER
     createUser: async (context, user) => {
       fetch("https://zoe-capstone-api.herokuapp.com/users/register", {
@@ -114,6 +105,47 @@ export default createStore({
       // console.log(
       //   `user ${(user.user_fullname, user.user_email)} created successfully`
       // );
+    },
+    // CREATE PRODUCT
+    createproduct: async (context, product) => {
+      // console.log(product);
+      fetch("https://zoe-capstone-api.herokuapp.com/products", {
+        method: "POST",
+        body: JSON.stringify(product),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then((products) => {
+          console.log(products);
+          // context.dispatch("getproducts", product);
+        });
+    },
+    // CREATE FLAVOUR
+    createflavour: async (context, flavour) => {
+      // console.log(product);
+      fetch("https://zoe-capstone-api.herokuapp.com/flavours", {
+        method: "POST",
+        body: JSON.stringify(flavour),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then((products) => {
+          console.log(flavours);
+          // context.dispatch("getproducts", product);
+        });
+    },
+    // ADD TO CART
+    addToCart: async (context, id) => {
+      this.state.cart.product.push(id);
+      context.dispatch("updateCart", this.state.cart);
+    },
+    deleteFromCart: async (context, id) => {
+      const newCart = context.state.cart.filter((product) => product.id != id);
+      context.commit("removeFromCart", newCart);
     },
     // USERS
     // SHOW ALL USERS

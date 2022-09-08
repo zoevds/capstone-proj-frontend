@@ -74,12 +74,11 @@ export default {
     console.log(this.$route.params.id);
     this.$store.dispatch("getProduct", this.$route.params.id);
   },
-  // mounted() {
-  //   fetch("https://capstone-fin.herokuapp.com/products/" + this.id)
-  //     .then((res) => res.json())
-  //     .then((data) => (this.product = data));
-  // },
-  // };
+  methods: {
+    addToCart() {
+      return this.$store.dispatch("addToCart");
+    },
+  },
 };
 </script>
 <style>
@@ -91,7 +90,7 @@ export default {
   background-repeat: no-repeat;
   background-attachment: fixed;
   /* background-size: 100% 100%; */
-  min-height: 130vh;
+  min-height: 100vh;
 }
 .col-md-6 {
   padding: 2rem;

@@ -82,12 +82,14 @@ export default {
 }
 #profilecard {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
-  width: 64rem;
-  height: 30rem;
-  margin-top: 6rem;
+  width: 50rem;
+  height: 32rem;
+  /* margin-top: 6rem; */
 }
 #profile-cont {
-  padding: 3rem;
+  padding: 8rem;
+
+  margin-left: 10rem;
 }
 #userprofile-head1 {
   color: white;
@@ -117,12 +119,13 @@ export default {
 }
 
 @media only screen and (max-width: 600px) {
+ 
   #profilecard {
     width: 21rem;
     height: 30rem;
-    margin-top: 6rem;
+    margin-top: 2rem;
 
-    margin-left: -1.7rem;
+    margin-left: -16.5rem;
   }
   #userprofile-head1 {
     font-size: 2rem;

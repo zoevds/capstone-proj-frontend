@@ -48,6 +48,10 @@
           </li>
           |
           <li v-if="user" class="nav-item">
+            <router-link to="/alladmintables"> Admin</router-link>
+          </li>
+          |
+          <li v-if="user" class="nav-item">
             <router-link
               :to="{ name: 'userprofile', params: { id: user.user_id } }"
               ><i id="profile-icon" class="fa-solid fa-id-badge"></i
@@ -122,7 +126,7 @@ nav a.router-link-exact-active {
 }
 #profile-icon {
   font-size: 1.8rem;
-  margin-left: 45rem;
+  margin-left: 40rem;
 }
 /* #li.nav-item {
   margin-bottom: -2rem;
