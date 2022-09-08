@@ -546,4 +546,20 @@ img.product\.img {
 #exampleModal {
   background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
 }
+@media only screen and (max-width: 600px) {
+  tr {
+    display: flex;
+    flex-direction: column;
+    /* width: 21rem; */
+    /* margin-left: -2rem; */
+  }
+  th {
+    width: 21rem;
+    margin-left: 29.5rem;
+  }
+  td {
+    width: 21rem;
+    margin-left: 29.5rem;
+  }
+}
 </style>
