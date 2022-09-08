@@ -6,35 +6,42 @@
         <div v-if="cartproducts">
           <div v-for="product in cartproducts" :key="product.product_id">
             <h4>Price:R {{ product.product_price }}</h4>
-          <img v-bind:src="product.product_imgURL" class="mb-2" alt="product" />
-          <h3>{{ product.product_name }}</h3>
-          <p>{{ product.product_category }}</p>
-          Quantity:
-          <select name="quantity" id="quantity">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-          </select>
-          <button @click="deleteFromCart(product.product_id)" class="btn-area">
-            <i class="fa fa-trash"></i>
-            <span class="btn2">Remove</span>
-          </button>
-          <div class="right-bar">
-            <p class="d-flex justify-content- gap-3">
-              <span>Subtotal: R{{ product.product_price }}</span>
-            </p>
-            <hr />
+            <img
+              v-bind:src="product.product_imgURL"
+              class="mb-2"
+              alt="product"
+            />
+            <h3>{{ product.product_name }}</h3>
+            <p>{{ product.product_category }}</p>
+            Quantity:
+            <select name="quantity" id="quantity">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+            <button
+              @click="deleteFromCart(product.product_id)"
+              class="btn-area"
+            >
+              <i class="fa fa-trash"></i>
+              <span class="btn2">Remove</span>
+            </button>
+            <div class="right-bar">
+              <p class="d-flex justify-content- gap-3">
+                <span>Subtotal: R{{ product.product_price }}</span>
+              </p>
+              <hr />
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   </section>
 </template>
@@ -76,7 +83,7 @@ export default {};
 }
 @media only screen and (max-width: 600px) {
   #cartcard {
-    width: 22rem;
+    width: 21.5rem;
     height: 32rem;
 
     margin-left: -17rem;

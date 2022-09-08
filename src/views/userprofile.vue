@@ -120,7 +120,7 @@ export default {
 
 @media only screen and (max-width: 600px) {
   #profilecard {
-    width: 22rem;
+    width: 21rem;
     height: 30rem;
     margin-top: 2rem;
 
