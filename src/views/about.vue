@@ -179,54 +179,54 @@ img#arrowimg:hover {
   html {
     overflow-x: hidden;
   }
-  #about-head1[data-v-e7ab893a] {
+  #about-head1 {
     font-size: 4rem;
 
     padding: 1rem;
     margin-top: 7rem;
   }
-  .card[data-v-e7ab893a] {
+  .card {
     width: 20rem;
     height: 27rem;
     margin-left: 1rem;
     margin-top: 1rem;
     padding: 2rem;
   }
-  #about-head2[data-v-e7ab893a] {
+  #about-head2 {
     font-size: 1.4rem;
     margin-top: 0%;
   }
-  #aboutpg1[data-v-e7ab893a],
-  #aboutpg2[data-v-e7ab893a] {
+  #aboutpg1,
+  #aboutpg2 {
     display: flex;
     justify-content: center;
     text-shadow: 3px 3px 6px black;
     font-size: 0.8rem;
   }
-  #logo[data-v-e7ab893a] {
+  #logo {
     width: 16rem;
     height: 10rem;
   }
-  #aboutcard2[data-v-e7ab893a] {
+  #aboutcard2 {
     width: 20rem;
     height: 27rem;
     margin-left: 1rem;
     margin-top: 1rem;
     padding: 2rem;
   }
-  #abouthead3[data-v-e7ab893a] {
+  #abouthead3 {
     font-size: 1.4rem;
     margin-top: 0%;
   }
-  #flavimg[data-v-e7ab893a] {
+  #flavimg {
     width: 16rem;
     height: 10rem;
   }
-  #abouthead4[data-v-e7ab893a] {
+  #abouthead4 {
     font-size: 3rem;
     margin-top: 1rem;
   }
-  a[data-v-e7ab893a] {
+  a {
     font-size: 1rem;
   }
   ::before {
