@@ -5,7 +5,7 @@
 
     <!-- search bar -->
     <form class="form">
-      <button>
+      <button type="submit">
         <svg
           width="17"
           height="16"
@@ -28,6 +28,7 @@
         placeholder="Type your text"
         required=""
         type="text"
+        v-model="search"
       />
       <button class="reset" type="reset">
         <svg
@@ -71,6 +72,7 @@
       <option id="selectopt" value="VMAX max">VMAX max</option>
       <option id="selectopt" value="VMAX pro">VMAX pro</option>
     </select>
+    <button id="sortbtn" @click="sortByPrice">Sort By Price</button>
     <!-- <div class="col"> -->
     <div v-if="products" id="container">
       <div
@@ -200,11 +202,13 @@ export default {
       categories: "All",
     };
   },
-  sortByPrice() {
+  methods: {
+    sortByPrice() {
       //gives function a name (does not need to be the same as the name given in the store)
       this.$store.commit("sortByPrice"); //runs the function in the store
     },
-  
+  },
+
   mounted() {
     this.$store.dispatch("getProducts");
     this.$store.dispatch("getFlavours");
@@ -222,12 +226,15 @@ export default {
     return this.$store.state.products?.filter((product) => {
       let isMatch = true;
       if (
-        !product.category_type
+        !product.categories_type
           ?.toLowerCase()
           .includes(this.search.toLowerCase())
       )
         isMatch = false;
-      if (this.categories !== "All" && product.categories !== this.categories)
+      if (
+        this.categories_type !== "All" &&
+        product.categories_type !== this.categories_type
+      )
         isMatch = false;
       return isMatch;
     });
@@ -370,6 +377,13 @@ div#prodcard {
 #viewflavlink {
   text-decoration: none;
   color: white;
+}
+/* SORT BUTTON */
+#sortbtn {
+  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45));
+  color: white;
+  margin-bottom: 1rem;
+  border-radius: 4px;
 }
 /* FLAVOUR BUTTON */
 .flavourwrapper {

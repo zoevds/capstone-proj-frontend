@@ -113,7 +113,11 @@ export default {
 #usercartbtn {
   background-color: black;
   color: white;
+  border: none;
+  box-shadow: 2px 2px 4px white;
+  border-radius: 4px;
 }
+
 #content-col {
   margin-top: 4rem;
 }

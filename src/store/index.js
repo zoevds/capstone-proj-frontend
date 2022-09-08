@@ -11,6 +11,7 @@ export default createStore({
     flavour: null,
     Token: null,
     flavours: null,
+    cart: [],
     asc: true,
   },
   getters: {},
@@ -51,6 +52,16 @@ export default createStore({
         (state.users = ""),
         (state.product = ""),
         (state.products = "");
+    },
+    sortByPrice: (state) => {
+      state.products.sort((a, b) => {
+        return a.price - b.price; //like vanilla javascript, this is how you make a sort function
+      });
+      if (!state.asc) {
+        //if the asc is not true, it reverses the current order of the list
+        state.products.reverse(); // reverts the order
+      }
+      state.asc = !state.asc; //states that when the function is run, asc becomes false instead of true
     },
   },
   actions: {
