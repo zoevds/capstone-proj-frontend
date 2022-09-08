@@ -159,7 +159,7 @@ export default {
     padding: 3rem;
     margin-top: -0.5rem;
   }
-  #loginhead1[data-v-7589b93f] {
+  #loginhead1 {
     color: white;
     font-family: brush;
     padding: 1rem;
@@ -168,8 +168,8 @@ export default {
     transform: rotate(0deg);
     margin-top: 0rem;
   }
-  #emailInput[data-v-7589b93f],
-  #Passwordinput[data-v-7589b93f] {
+  #emailInput,
+  #Passwordinput {
     width: 15rem;
     height: 4rem;
     border: none;
