@@ -134,7 +134,7 @@ nav a.router-link-exact-active {
     /* margin-top: 1.5rem; */
     z-index: 100;
     position: fixed;
-    width: 70%;
+    width: 100%;
     padding: 20px;
     margin-top: 1.5rem;
   }
