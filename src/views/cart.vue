@@ -76,7 +76,7 @@ export default {};
 }
 @media only screen and (max-width: 600px) {
   #cartcard {
-    width: 21.5rem;
+    width: 22rem;
     height: 32rem;
 
     margin-left: -17rem;
