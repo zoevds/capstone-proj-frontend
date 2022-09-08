@@ -58,7 +58,7 @@ export default {};
 }
 #cartcard {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
-  width: 50rem;
+  width: 55rem;
   height: 32rem;
   /* margin-top: 6rem; */
 }
