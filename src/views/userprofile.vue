@@ -6,7 +6,7 @@
           <h1 id="userprofile-head1">Your Profile</h1>
           <div class="row">
             <div class="col">
-              <div v-if="user.user_gender == !'male'">
+              <div v-if="user.user_gender !== 'male'">
                 <img
                   id="maleprofile"
                   src="https://i.postimg.cc/RV7gBGnJ/profile.png"
@@ -104,5 +104,23 @@ export default {
 #userprofiletype,
 #userprofilecart {
   color: white;
+}
+@media only screen and (max-width: 600px) {
+  #profilecard {
+    width: 21rem;
+    height: 30rem;
+    margin-top: 6rem;
+
+    margin-left: -1.7rem;
+  }
+  #userprofile-head1 {
+    font-size: 2rem;
+  }
+  #femaleprofile,
+  #maleprofile {
+    width: 10rem;
+    height: 10rem;
+    margin-bottom: 2rem;
+  }
 }
 </style>

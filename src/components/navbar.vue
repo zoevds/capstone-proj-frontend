@@ -134,9 +134,10 @@ nav a.router-link-exact-active {
     /* margin-top: 1.5rem; */
     z-index: 100;
     position: fixed;
-    width: 100%;
+    width: 95%;
     padding: 20px;
     margin-top: 1.5rem;
+    margin-left: 0.6rem;
   }
 
   body,
@@ -147,6 +148,9 @@ nav a.router-link-exact-active {
     margin-left: 0.1rem;
     margin-top: 0.2rem;
     margin-bottom: 0.3rem;
+  }
+  #logoimg {
+    margin-bottom: 0.5rem;
   }
 }
 </style>
