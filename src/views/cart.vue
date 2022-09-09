@@ -89,4 +89,16 @@ export default {};
     margin-left: -17rem;
   }
 }
+@media only screen and (max-width: 800px) {
+  body,
+  html {
+    overflow-x: hidden;
+  }
+  #cartcard {
+    width: 41rem;
+    height: 34rem;
+
+    margin-left: -14rem;
+  }
+}
 </style>

@@ -562,4 +562,20 @@ img.product\.img {
     margin-left: 29.5rem;
   }
 }
+@media only screen and (max-width: 800px) {
+  tr {
+    display: flex;
+    flex-direction: column;
+    /* width: 21rem; */
+    /* margin-left: -2rem; */
+  }
+  th {
+    width: 45rem;
+    margin-left: 17.5rem;
+  }
+  td {
+    width: 45rem;
+    margin-left: 17.5rem;
+  }
+}
 </style>

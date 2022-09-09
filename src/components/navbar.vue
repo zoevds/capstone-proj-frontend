@@ -168,4 +168,17 @@ nav a.router-link-exact-active {
     margin-bottom: 0.5rem;
   }
 }
+@media only screen and (max-width: 800px) {
+  body,
+  html {
+    overflow-x: hidden;
+  }
+  #profile-icon {
+    margin-left: 0rem;
+  }
+  #logoutbtn {
+  
+    margin-right: 0rem;
+  }
+}
 </style>

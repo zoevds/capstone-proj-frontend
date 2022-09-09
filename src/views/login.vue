@@ -177,4 +177,51 @@ export default {
     color: white;
   }
 }
+@media only screen and (max-width: 800px) {
+  .navbar {
+    background-color: black;
+    border-radius: 12px;
+    /* margin-top: 1.5rem; */
+    z-index: 100;
+    position: fixed;
+    width: 99%;
+    padding: 20px;
+    margin-top: 1.5rem;
+  }
+  #logincard {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    width: 43rem;
+    height: 33rem;
+    box-shadow: 3px 3px 4px black;
+    margin-top: 6rem;
+    border-radius: 8px;
+  }
+  #loginhead1 {
+    color: white;
+    font-family: brush;
+    padding: 1rem;
+    font-size: 4rem;
+    translate: 90deg;
+    transform: rotate(0deg);
+    margin-top: 1rem;
+  }
+  #col-6 {
+    padding: 2rem;
+    margin-top: -1rem;
+  }
+  #emailInput,
+  #Passwordinput {
+    width: 35rem;
+    height: 4rem;
+    border: none;
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
+    color: white;
+    margin-left: 2rem;
+  }
+  #log-sendbtn {
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
+    color: white;
+    margin-bottom: 1rem;
+  }
+}
 </style>

@@ -183,4 +183,26 @@ div#row1 {
     margin-top: 0.5rem;
   }
 }
+@media only screen and (max-width: 800px) {
+  body,
+  html {
+    overflow-x: hidden;
+  }
+  #profilecard {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    width: 42rem;
+    height: 45rem;
+    /* margin-top: 6rem; */
+    margin-left: -14rem;
+  }
+  div#row1 {
+    color: white;
+    margin-left: 2rem;
+  }
+  #row2 {
+    color: white;
+    margin-left: -1rem;
+    
+  }
+}
 </style>

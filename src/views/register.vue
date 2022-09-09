@@ -55,6 +55,8 @@
           </form>
         </div>
       </div>
+
+      <p id="pg">Already Have an account?</p>
       <a href="/">Login</a>
     </div>
   </section>
@@ -165,6 +167,9 @@ export default {
   color: white;
   margin-right: 2.5rem;
 }
+#pg {
+  color: white;
+}
 #reg-sendbtn:hover {
   color: grey;
   border: none;
@@ -199,6 +204,40 @@ export default {
   }
   #reg-sendbtn {
     margin-right: 0%;
+    margin-bottom: 1rem;
+  }
+}
+@media only screen and (max-width: 800px) {
+  #regcard {
+    width: 43rem;
+    height: 36rem;
+    margin-top: 8rem;
+    margin-bottom: 3rem;
+  }
+  #registerhead1 {
+    color: white;
+    font-family: brush;
+    padding: 1rem;
+    font-size: 4rem;
+    translate: 90deg;
+    transform: rotate(0deg);
+    margin-top: 0rem;
+  }
+  #floatingInput,
+  #floatingPassword,
+  #floatingInput1 {
+    width: 36rem;
+    height: 4rem;
+    border: none;
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
+    color: white;
+    margin-left: 3rem;
+    margin-top: -1rem;
+  }
+  #reg-sendbtn {
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
+    color: white;
+    margin-right: 0rem;
     margin-bottom: 1rem;
   }
 }

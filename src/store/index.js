@@ -149,6 +149,18 @@ export default createStore({
           // context.dispatch("getproducts", product);
         });
     },
+    // DELETE PRODUCT
+    // deleteFlight: async (context, id) => {
+    //   await fetch("https://capstone-api-mudassar.herokuapp.com/flights/" + id, {
+    //     // await fetch("http://localhost:3000/cars/" + id, {
+    //     method: "DELETE",
+    //   })
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //       // console.log(data);
+    //       context.dispatch("getFlights");
+    //     });
+    // },
     // ADD TO CART
     addToCart: async (context, id) => {
       this.state.cart.product.push(id);
