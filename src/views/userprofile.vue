@@ -21,8 +21,11 @@
                 />
               </div>
             </div>
+          </div>
+          <div class="row">
             <div id="content-col" class="col">
               <div class="row">
+                <h2 id="userdetails">User Details:</h2>
                 <div id="userprofilename" class="col">
                   Name: {{ user.user_fullname }}
                 </div>
@@ -43,6 +46,16 @@
                     Your Cart{{ user.user_cart }}
                   </button>
                 </div>
+              </div>
+            </div>
+
+            <div id="content-col" class="col">
+              <h2 id="useraddress">User Address:</h2>
+              <div id="row1" class="row">
+                User Billing Address: {{ user.user_billing_address }}
+              </div>
+              <div id="row2" class="row">
+                User Shipping Address: {{ user.user_shipping_address }}
               </div>
             </div>
           </div>
@@ -83,7 +96,7 @@ export default {
 #profilecard {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
   width: 63rem;
-  height: 32rem;
+  height: 45rem;
   /* margin-top: 6rem; */
 }
 #profile-cont {
@@ -102,6 +115,18 @@ export default {
 #maleprofile {
   width: 18rem;
   height: 18rem;
+}
+#useraddress,
+#userdetails {
+  color: whitesmoke;
+}
+#row2 {
+  color: white;
+  margin-left: 6rem;
+}
+div#row1 {
+  color: white;
+  margin-left: 10rem;
 }
 #userprofilename,
 #userprofileemail,
@@ -125,7 +150,7 @@ export default {
 @media only screen and (max-width: 600px) {
   #profilecard {
     width: 21rem;
-    height: 30rem;
+    height: 45rem;
     margin-top: 2rem;
 
     margin-left: -16.5rem;
@@ -138,6 +163,15 @@ export default {
     width: 10rem;
     height: 10rem;
     margin-bottom: 2rem;
+  }
+  #row2 {
+    color: white;
+    margin-left: 0.1em;
+    padding: 1rem;
+  }
+  div#row1 {
+    color: white;
+    margin-left: 3rem;
   }
   #userprofilename,
   #userprofileemail,
