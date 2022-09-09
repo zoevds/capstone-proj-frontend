@@ -27,7 +27,7 @@
       <div class="row">
         <div class="col">
           <div id="aboutcard2">
-            <h2 id="abouthead3">Different flavours</h2>
+            <h2 id="abouthead3">Our Different flavours</h2>
             <p id="aboutpg2">
               VMAX Vapes provides a big variety of vape flavours, common and
               uncommon flavours. To find out more about our flavours...
@@ -233,6 +233,58 @@ img#arrowimg:hover {
     margin-bottom: 2rem;
     font-size: 1.5rem;
     margin-right: 1rem;
+  }
+}
+@media only screen and (max-width: 800px) {
+  #about-head1 {
+    font-size: 4rem;
+
+    margin-top: 6rem;
+  }
+  .card {
+    width: 37rem;
+    height: 35rem;
+
+    margin-top: 1rem;
+    padding: 3rem;
+  }
+  #about-head2 {
+    font-size: 2rem;
+  }
+  #logo {
+    width: 21rem;
+    height: 12rem;
+    margin-top: 2rem;
+  }
+  #aboutcard2 {
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65));
+    width: 37rem;
+    height: 35rem;
+  }
+  #abouthead3 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  #flavimg {
+    width: 21rem;
+    height: 12rem;
+
+    margin-top: 2rem;
+  }
+  #abouthead4 {
+    font-size: 3rem;
+    margin-top: 3rem;
+  }
+  a {
+    font-size: 1.2rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 27rem;
+    height: 35rem;
+    margin-top: 1rem;
+    padding: 3rem;
   }
 }
 </style>

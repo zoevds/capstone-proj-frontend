@@ -35,7 +35,7 @@ export default createStore({
       state.flavour = flavour;
     },
     setToken: (state, token) => {
-      state.token = token;
+      state.Token = token;
     },
     setCart: (state, cart) => {
       state.cart = cart;

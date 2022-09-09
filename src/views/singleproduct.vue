@@ -34,7 +34,9 @@
                     <div class="col">
                       <ul class="productwrapper">
                         <li class="producticon productcart">
-                          <span class="producttooltip">Add to cart</span>
+                          <span class="producttooltip" @click="addToCart(product)"
+                            >Add to cart</span
+                          >
                           <span><i class="fa-solid fa-cart-shopping"></i></span>
                         </li>
                       </ul>
@@ -66,6 +68,9 @@
 export default {
   props: ["id"],
   computed: {
+    item() {
+      return this.$store.state.item;
+    },
     product() {
       return this.$store.state.product;
     },
@@ -75,8 +80,8 @@ export default {
     this.$store.dispatch("getProduct", this.$route.params.id);
   },
   methods: {
-    addToCart() {
-      return this.$store.dispatch("addToCart");
+    addToCart(item) {
+      this.$store.commit("updateCart", item);
     },
   },
 };

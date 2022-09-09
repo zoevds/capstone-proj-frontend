@@ -136,7 +136,7 @@
     <p id="flavpg">Explore our different vape flavours</p>
     <div class="container">
       <div v-if="products"></div>
-      <div class="row p-5">
+      <div class="row">
         <div
           id="vfor-div"
           v-for="flavour of flavours"
@@ -768,6 +768,19 @@ input:not(:placeholder-shown) ~ .reset {
     width: 15rem;
     margin-bottom: 2rem;
     margin-left: 4.3rem;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .form {
+    margin-left: 9rem;
+  }
+  #productselect {
+    margin-left: 14rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  #productselect {
+    margin-left: 8rem;
   }
 }
 </style>
