@@ -34,10 +34,15 @@
                     <div class="col">
                       <ul class="productwrapper">
                         <li class="producticon productcart">
-                          <span class="producttooltip" @click="addToCart(product)"
+                          <button type="button">
+
+                            <span
+                            class="producttooltip"
+                            @click="addToCart(product)"
                             >Add to cart</span
-                          >
-                          <span><i class="fa-solid fa-cart-shopping"></i></span>
+                            >
+                            <span><i class="fa-solid fa-cart-shopping"></i></span>
+                          </button>
                         </li>
                       </ul>
 
@@ -81,7 +86,7 @@ export default {
   },
   methods: {
     addToCart(item) {
-      this.$store.commit("updateCart", item);
+      this.$store.commit("addTocart", item);
     },
   },
 };

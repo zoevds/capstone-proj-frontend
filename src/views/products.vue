@@ -86,7 +86,11 @@
             <h1 id="prodhead1">{{ product.product_name }}</h1>
             <!-- </div> -->
             <!-- <div class="col"> -->
-            <img id="prodimg" :src="product.product_imgURL" alt="" />
+            <img
+              id="prodimg"
+              :src="product.product_imgURL"
+              alt="product image"
+            />
 
             <!-- </div> -->
             <div class="col">

@@ -4,14 +4,39 @@ import createPersistedState from "vuex-persistedstate";
 
 export default createStore({
   state: {
-    user: null,
+    user: null || {
+      user_id: 17,
+      user_fullname: "zuhrah palmer",
+      user_email: "zuhrahpalmer@gmail.com",
+      user_billing_address: "millie",
+      user_shipping_address: "doctorplace",
+      user_order_date: "18/05/2022",
+      user_password:
+        "$2a$10$nEdNZ84XWintNqNP/Oy.yutkh1f1AGJcAyiHAH7JxXPwf/tIYTa0a",
+      user_type: "admin",
+      user_cart: [
+        {
+          cartid: 2,
+          flavour: "",
+          product_desc:
+            "VMAX 1.0 is one of the first disposable vapes that we made back in 2020",
+          product_name: "VMAX 1.0",
+          product_price: "380",
+          product_imgURL:
+            "https://i.postimg.cc/qMctDyfL/pexels-jonathan-cooper-9419514.jpg",
+          product_weight: "18",
+          product_category: "1.0",
+        },
+      ],
+      user_gender: "female",
+    },
     users: null,
     product: null,
     products: null,
     flavour: null,
     Token: null,
     flavours: null,
-    cart: [],
+    cart: null,
     asc: true,
   },
   getters: {},
@@ -96,6 +121,7 @@ export default createStore({
           .then((res) => res.json())
           .then((data) => {
             context.commit("setUser", data.user);
+            context.dispatch("getcart");
           });
 
         router.push("/products");
@@ -161,15 +187,7 @@ export default createStore({
     //       context.dispatch("getFlights");
     //     });
     // },
-    // ADD TO CART
-    addToCart: async (context, id) => {
-      this.state.cart.product.push(id);
-      context.dispatch("updateCart", this.state.cart);
-    },
-    deleteFromCart: async (context, id) => {
-      const newCart = context.state.cart.filter((product) => product.id != id);
-      context.commit("removeFromCart", newCart);
-    },
+
     // USERS
     // SHOW ALL USERS
     getUsers: async (context) => {
@@ -185,6 +203,20 @@ export default createStore({
         .then((res) => res.json())
         .then((data) => context.commit("setUsers", data))
         .catch((err) => console.log(err.message));
+    },
+    deleteUser: async (context, id) => {
+      console.log(id);
+      await fetch("https://zoe-capstone-api.herokuapp.com/users/" + id, {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          context.dispatch("getUsers");
+        });
     },
     // PRODUCTS
     // SHOW ALL PRODUCTS
@@ -265,6 +297,102 @@ export default createStore({
       })
         .then((response) => response.json())
         .then((json) => context.commit("setProduct", json));
+    },
+
+    //cart
+    getcart: async (context, id) => {
+      id = context.state.user.user_id;
+      await fetch(
+        // "https://zoe-capstone-api.herokuapp.com" + "/users/" + id + "/cart",
+        "http://localhost:3000" + "/users/" + id + "/cart",
+        {
+          // await fetch("http://localhost:3000/users/" + id + "/cart", {
+          method: "GET",
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            "x-auth-token": context.state.Token,
+          },
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data != null) {
+            context.commit("setCart", (data.results));
+            context.state.cart = data.results
+          } else {
+            context.commit("setCart", null);
+          }
+        });
+    },
+    addTocart: async (context, item, id) => {
+      id = context.state.user.user_id;
+      console.log(item);
+      await fetch(
+        // "https://zoe-capstone-api.herokuapp.com" + "/users/" + id + "/cart",
+        "http://localhost:3000" + "/users/" + id + "/cart",
+        {
+          // await fetch("http://localhost:3000/users/" + id + "/cart", {
+          method: "POST",
+          body: JSON.stringify(item),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            "x-auth-token": context.state.Token,
+          },
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          context.state.msg = data.msg;
+          context.dispatch("getcart");
+        });
+    },
+    clearcart: async (context, id) => {
+      id = context.state.user.user_id;
+      await fetch(
+        // "https://zoe-capstone-api.herokuapp.com" + "/users/" + id + "/cart",
+        "http://localhost:3000" + "/users/" + id + "/cart",
+        {
+          // await fetch("http://localhost:3000/users/" + id + "/cart", {
+          method: "DELETE",
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            "x-auth-token": context.state.Token,
+          },
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          // console.log(data);
+          context.state.msg = data.msg;
+          context.dispatch("getcart", id);
+        });
+    },
+    deletecartItem: async (context, list, id) => {
+      console.log(list)
+      id = context.state.user.user_id;
+      await fetch(
+        // "https://zoe-capstone-api.herokuapp.com" +
+        //   "/users/" +
+        //   id +
+        //   "/cart/" +
+        //   list.cartid,
+        "http://localhost:3000/users/" + id + "/cart/" + list.cartid,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            "x-auth-token": context.state.Token,
+          },
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          // context.state.msg = data.msg;
+          context.dispatch("getcart");
+        });
     },
   },
   modules: {},

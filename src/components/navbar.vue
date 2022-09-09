@@ -77,6 +77,9 @@ export default {
       return this.$store.state.user;
     },
   },
+  mounted() {
+    this.$store.dispatch('getcart')
+  },
   methods: {
     logout() {
       this.$store.commit("logout");

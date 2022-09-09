@@ -121,8 +121,12 @@
                 <button type="btn">
                   <i class="fa-solid fa-pen-to-square" @click="toggleModal"></i>
                 </button>
-                <button type="btn" @click="deleteproduct">
-                  <i class="fa-solid fa-trash-can"></i>
+                <button type="btn">
+                  <a
+                    class="btn"
+                    @click="this.$store.dispatch('deleteUser', user.user_id)"
+                    ><i class="fa-solid fa-trash"></i
+                  ></a>
                 </button>
               </td>
             </tr>
@@ -398,8 +402,12 @@
                 <button type="btn">
                   <i class="fa-solid fa-pen-to-square" @click="toggleModal"></i>
                 </button>
-                <button type="btn" @click="deleteproduct">
-                  <i class="fa-solid fa-trash-can"></i>
+                <button type="btn">
+                  <a
+                    class="btn"
+                    @click="this.$store.dispatch('deleteUser', user.user_id)"
+                    ><i class="fa-solid fa-trash"></i
+                  ></a>
                 </button>
               </td>
             </tr>
