@@ -318,8 +318,8 @@ export default createStore({
         .then((data) => {
           console.log(data);
           if (data != null) {
-            context.commit("setCart", (data.results));
-            context.state.cart = data.results
+            context.commit("setCart", data.results);
+            context.state.cart = data.results;
           } else {
             context.commit("setCart", null);
           }
@@ -370,7 +370,7 @@ export default createStore({
         });
     },
     deletecartItem: async (context, list, id) => {
-      console.log(list)
+      console.log(list);
       id = context.state.user.user_id;
       await fetch(
         // "https://zoe-capstone-api.herokuapp.com" +

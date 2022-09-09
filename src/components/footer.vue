@@ -12,9 +12,9 @@ export default {};
 
   height: 8rem;
 } */
-footer {
+/* footer {
   height: 3rem;
   background-color: #152d35;
   color: white;
-}
+} */
 </style>
