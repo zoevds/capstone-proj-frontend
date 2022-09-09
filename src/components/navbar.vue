@@ -24,43 +24,45 @@
           <li class="nav-item">
             <router-link to="/landing">Home</router-link>
           </li>
-          |
+
           <li v-if="user" class="nav-item">
             <router-link to="/about">About</router-link>
           </li>
-          |
+
           <li v-if="user" class="nav-item">
             <router-link to="/products">Products</router-link>
           </li>
-          |
+
           <li v-if="user" class="nav-item">
             <router-link to="/contact">Contact</router-link>
           </li>
-          |
+
           <li class="nav-item"><router-link to="/">Login</router-link></li>
-          |
+
           <li class="nav-item">
             <router-link to="/register">Register</router-link>
           </li>
-          |
+
           <li v-if="user" class="nav-item">
             <router-link to="/cart"> Cart</router-link>
           </li>
-          |
+
           <li v-if="user" class="nav-item">
             <router-link to="/alladmintables"> Admin</router-link>
           </li>
-          |
+
           <li v-if="user" class="nav-item">
             <router-link
               :to="{ name: 'userprofile', params: { id: user.user_id } }"
               ><i id="profile-icon" class="fa-solid fa-id-badge"></i
             ></router-link>
           </li>
-          |
+
           <li class="nav-item">
-            <button @click="logout()">
-              <i class="fa-solid fa-right-from-bracket"></i>
+            <button id="logoutbtn" @click="logout()">
+              <router-link to="/landing">
+                <i class="fa-solid fa-right-from-bracket"></i>
+              </router-link>
             </button>
           </li>
         </ul>
@@ -106,8 +108,9 @@ nav a {
   font-weight: bold;
   color: #e8f9fd;
   text-decoration: none;
-  display: flex;
-  justify-content: space-between;
+  /* display: flex;
+  justify-content: space-between; */
+  margin-right: 0.5rem;
 }
 
 nav a.router-link-exact-active {
@@ -126,7 +129,15 @@ nav a.router-link-exact-active {
 }
 #profile-icon {
   font-size: 1.8rem;
-  margin-left: 40rem;
+  margin-left: 38rem;
+  background-color: black;
+  color: white;
+}
+#logoutbtn {
+  background-color: black;
+  color: white;
+  font-size: 1rem;
+  margin-right: 1rem;
 }
 /* #li.nav-item {
   margin-bottom: -2rem;
